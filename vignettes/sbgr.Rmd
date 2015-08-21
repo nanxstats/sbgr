@@ -1,0 +1,948 @@
+---
+title: "Running the FastQC Pipeline with sbgr"
+output:
+  BiocStyle::html_document:
+    toc: true
+    number_sections: true
+    highlight: haddock
+    css: style.css
+    includes:
+      in_header: logo.md
+---
+
+<!--
+%\VignetteIndexEntry{Running the FASTQC Pipeline with sbgr}
+%\VignettePackage{sbgr}
+%\VignetteEngine{knitr::rmarkdown}
+-->
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown(css.files = "custom.css")
+```
+
+<!-- override white background for classless code chunks -->
+<style type="text/css" scoped>
+  pre:not([class]) { background-color: #F8F8F8; }
+  pre code { background-color: transparent; }
+</style>
+
+```{r code, echo = FALSE}
+code <- function(...) {
+    cat(paste(..., sep = "\n"))
+}
+
+code2 <- function(...) {
+    cat(paste("```markdown", ..., "\n", "```", sep = "\n"))
+}
+```
+
+# Introduction
+
+This guide will get you started to use Seven Bridges API with the _R_
+client package `r Biocpkg("sbgr")`, and guide you through the steps needed
+to run the
+[FastQC Analysis pipeline](https://igor.sbgenomics.com/public/pipelines/534520eed79f0049c0c9443a/),
+a simple public pipeline on the Seven Bridges Genomics platform.
+
+The following primary steps will be included:
+
+ * uploading files and setting the metadata;
+ * running the [FastQC](https://igor.sbgenomics.com/public/pipelines/534520eed79f0049c0c9443a/) pipeline;
+ * downloading the results.
+
+# Preparatory works
+
+## Install the package
+
+To download and install the `r Biocpkg("sbgr")` package from _Bioconductor_,
+type the following commands in _R_:
+
+```{r install, eval=FALSE}
+source("http://bioconductor.org/biocLite.R")
+biocLite("sbgr")
+```
+
+It is possible that the package is not availble in the `release` branch
+right after being pushed to Bioconductor, you may switch to the `devel`
+branch to install it and switch back to the `release` branch (if you were
+using the `release` branch at first):
+
+```{r install_2, eval=FALSE}
+source("http://bioconductor.org/biocLite.R")
+useDevel(devel = TRUE)
+biocLite("sbgr")
+useDevel(devel = FALSE)
+```
+
+Alternatively, you can install the cutting-edge development version of
+the `r Githubpkg("road2stat/sbgr")` package from GitHub:
+
+```{r install_github, eval=FALSE}
+# install.packages("devtools") if devtools was not installed
+library("devtools")
+install_github("road2stat/sbgr")
+```
+
+The package runs under Microsoft Windows, OS X, and GNU/Linux. If you meet
+any problems when installing the package, please check the
+[Bioconductor - Install](http://www.bioconductor.org/install/) page
+or [create an issue on GitHub](https://github.com/road2stat/sbgr/issues)
+and report the problem.
+
+To load the package in _R_, simply use
+
+```{r load, eval=FALSE}
+library("sbgr")
+```
+
+## Get authentication token
+
+The authentication token is used as an _password_ to identify yourself
+when aceessing the API. Please remember to keep your authentication token
+secure.
+
+To get your authentication token,
+[register an account](https://igor.sbgenomics.com/register/)
+(if you have already registered, please skip) and
+[log in](https://igor.sbgenomics.com/login/) to the dashboard of the
+Seven Bridges Platform.
+
+Open the [Account settings - Developer](https://igor.sbgenomics.com/account/?current=developer#developer)
+page, click the button in the page to generate the authentication token
+(a 32-letter string).
+
+Alternatively, you could use the function `misc_get_auth_token()`
+in `r Biocpkg("sbgr")` to get the token and store it as an object
+in R workspace:
+
+```{r get_token, eval=FALSE}
+token = misc_get_auth_token()
+```
+
+```
+## Enter the generated authentication token:
+## 1:
+```
+
+This will automatically open the browser and redirect to the token
+generation page. You can copy and paste the token into the _R_ console,
+press enter, and then the function will save the token as an character
+object `token` in the current workspace, which will make it convenient
+for you to use it in the next steps. For example:
+
+```{r print_token, eval=FALSE}
+print(token)
+```
+
+```
+## [1] "58aeb140197001306386001f5b34aa78"
+```
+
+> The auth token can be continuously used as long as you do not manually regenerate it or disable it on the Seven Bridges platform.
+
+# Create projects
+
+Pipelines need to be executed within projects. We can either use a project
+that has already been created, or we can use the API to create a new one.
+Let's create one from scratch. We do this using the function `project_new()`.
+The function requires a name for the project (we will use the name
+`'API tutorial'`) and a billing group, which could be retrived by the
+function `billing()`. You can also use the optional parameter `description`
+in `project_new()` to set the project description.
+
+```{r create_proj, eval=FALSE}
+# Get the first billing group that we have access to
+# and use it for the new project
+billing_group_id = billing(token)[["items"]][[1]][["id"]]
+
+# Create new project
+sbgr_project = project_new(token, name = "sbgr tutorial",
+                           description = "sbgr tutorial project",
+                           billing_group_id = billing_group_id)
+
+# The list sbgr_project now contains the ID of the new project,
+# which we will use in the subsequent calls
+sbgr_project_id = sbgr_project[["id"]]
+print(sbgr_project_id)
+```
+
+```
+## [1] "dbf274a0-6dc5-4453-be87-b16965add1aa"
+```
+
+> The created project could be seen on the [Seven Bridges platform](https://igor.sbgenomics.com/u/#q).
+
+# Get project details
+
+We will need the ID of a project to edit the file metatdata and
+execute pipelines. We can get the details of a project by using
+`project_details()`.
+
+```{r project_details, eval=FALSE}
+project_details(token, project_id = sbgr_project_id)
+```
+
+```
+$id
+[1] "dbf274a0-6dc5-4453-be87-b16965add1aa"
+
+$name
+[1] "sbgr tutorial"
+
+$description
+[1] "sbgr tutorial project"
+
+$my_permissions
+$my_permissions$write
+[1] TRUE
+
+$my_permissions$copy
+[1] TRUE
+
+$my_permissions$execute
+[1] TRUE
+
+$my_permissions$admin
+[1] TRUE
+```
+
+The returned list contains the details of the project that you can
+access with your auth token. Each project is listed with its ID number,
+name, description, and your detailed permissions to access the project.
+
+# Upload files and set file metadata
+
+Download the archive of sample data files [sample1.tgz](https://developer.sbgenomics.com/examples/download/sample1.tgz)
+and assume we have extracted the files to the current _R_ working directory.
+We will upload the extracted file `sample1.fastq` in this example.
+
+## Upload files using SBG command line uploader
+
+The easiest way to upload files to the Seven Bridges Platform and set
+their metadata without using the GUI is via the [SBG command-line uploader](https://developer.sbgenomics.com/tools/uploader/documentation).
+Download the latest version of the [SBG command line uploader](https://igor.sbgenomics.com/sbg-uploader/sbg-uploader.tgz).
+If you have an older version of the uploader, please be sure to re-download
+and use the most recent version. You can also use the function
+`misc_get_uploader()` to download the uploader and extract it to
+a specified location.
+
+Once we have prepared the uploader and the file, we can use the function
+`misc_upload_cli()` to call the CLI uploader for uploading files,
+by specifying the parameters in the function:
+
+```{r misc_upload_cli, eval=FALSE}
+misc_get_uploader('~/')  # download the SBG CLI uploader to home directory
+
+file_id = misc_upload_cli(token, project_id = sbgr_project_id,
+                          file = "sample1.fastq", uploader = '~/sbg-uploader/')
+# suppose we have extracted sample1.fastq into current R working directory
+```
+
+After successful upload, the function will return the file's ID number:
+
+```{r misc_upload_cli_2, eval=FALSE}
+print(file_id)
+```
+
+```
+## [1] "559c41ebe4b0566fd159709a"
+```
+
+> The uploaded file could be seen in the project we just created on the
+[Seven Bridges platform](https://igor.sbgenomics.com/u/#q).
+
+<!--
+
+## Using API Calls
+
+Another way to upload files to the Seven Bridges Platform is via the API calls.
+
+Uploading files with the Seven Bridges API is performed as a multi-step
+operation. Basically, the required file is uploaded chunk by chunk,
+and then assembled as a complete file (in a similar way as the AWS S3 API).
+In order to upload a file, you will need to:
+
+  1. Initialize the upload, defining the file name and size of the file.
+  2. Get signed URLs for the upload of each of the file parts to Amazon
+  Simple Storage Service (S3).
+  3. Upload a part using a standard HTTP PUT call to the [Amazon S3pre-signed URL](http://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html).
+  4. If the part has been uploaded successfully, report completion of
+  the part upload, otherwise handle the failure (retry, inform user, etc.).
+  5. Repeat steps 2 to 5 for each file part.
+  6. Once all file parts have been successfully uploaded, report completion
+  of file upload.
+
+In this example, we will upload only one file part, since our file is
+a small one. For larger files, simply split them into smaller file parts
+and repeat the steps shown below.
+
+-->
+
+<!-- TODO: Python tutorial works fine, httr has HTTP 403
+     when doing the PUT() step. -->
+
+<!--
+
+```{r upload, eval=FALSE}
+# initialize the upload of the file sample1.fastq
+init = upload_init(token, project_id = sbgr_project_id,
+                   name = "sample1.fastq", size = file.size("sample1.fastq"))
+
+upload_id = init[["upload_id"]]
+partinfo = upload_info_part(token, upload_id = upload_id, part_number = 1)
+uri = partinfo[["uri"]]
+```
+
+After we got the upload URL on Amazon S3, we could use the `r CRANpkg("httr")` package to upload the file to it:
+
+```{r upload_s3, eval=FALSE}
+library("httr")
+fastqfile = upload_file(normalizePath("~/sample1.fastq"))
+upload_s3 = PUT(uri, body = fastqfile)
+# upload_s3 = requests.put(uri, data = f)
+etag = upload_s3$headers[["ETag"]]
+# We make the API call to confirm the successful upload
+# to the S3 backing storage
+upload_complete_part(token, upload_id, part_number = 1, e_tag = etag)
+# We make the call to finalize the upload. This ensures that the
+# file becomes available for other API requests.
+upload_complete_all(token, upload_id)
+```
+
+-->
+
+## Identify uploaded files
+
+To use the files you have uploaded in the previous step, we will first
+need to get their ID numbers. After uploading files to the project, we
+can obtain the file ID by running the `file_list()` function to list all
+the files in the project at anytime.
+
+```{r file_list, eval=FALSE}
+file_list(token, project_id = sbgr_project_id)
+```
+
+This will return a list about the details of the uploaded files in the project:
+
+```
+## $items
+## $items[[1]]
+## $items[[1]]$id
+## [1] "559c41ebe4b0566fd159709a"
+##
+## $items[[1]]$name
+## [1] "sample1.fastq"
+##
+## $items[[1]]$size
+## [1] 16
+##
+## $items[[1]]$origin
+## $items[[1]]$origin$upload_name
+## [1] "1436362037099"
+##
+##
+## $items[[1]]$metadata
+## $items[[1]]$metadata$file_type
+## [1] "fastq"
+##
+## $items[[1]]$metadata$seq_tech
+## [1] "illumina"
+##
+## $items[[1]]$metadata$sample
+## [1] "sample1"
+```
+
+## Update file metadata
+
+Once the file is uploaded, we can use the function `file_meta_update()`
+to set or update the file metadata. After we got the file ID number,
+we can easily set the file metadata by specifying certain parameters
+in `file_meta_update()`. For example:
+
+```{r update_meta, eval=FALSE}
+file_meta_update(token, project_id = sbgr_project_id,
+                 file_id    = file_id,
+                 file_type  = "fastq", seq_tech = "Illumina",
+                 qual_scale = "illumina18",
+                 sample     = "example_human_Illumina",
+                 library    = "Test", paired_end = "1")
+```
+
+```
+## $id
+## [1] "559c41ebe4b0566fd159709a"
+##
+## $name
+## [1] "sample1.fastq"
+##
+## $size
+## [1] 16
+##
+## $origin
+## $origin$upload_name
+## [1] "1436361569553"
+##
+##
+## $metadata
+## $metadata$file_type
+## [1] "fastq"
+##
+## $metadata$qual_scale
+## [1] "illumina18"
+##
+## $metadata$seq_tech
+## [1] "Illumina"
+##
+## $metadata$sample
+## [1] "example_human_Illumina"
+##
+## $metadata$library
+## [1] "Test"
+##
+## $metadata$paired_end
+## [1] "1"
+```
+
+The new metadata of the file will be shown after being succesfully updated.
+
+The `r Biocpkg("sbgr")` package also has a helper function
+`misc_make_metadata()` to generate metadata files. For more
+information about metadata, please refer to the
+[file metadata documentation](https://developer.sbgenomics.com/platform/metadata).
+
+# List public pipelines and add pipelines to project
+
+We want to run the [FastQC pipeline](https://igor.sbgenomics.com/public/pipelines/534520eed79f0049c0c9443a/)
+in our project, so we will need its ID number to identify it. Since the FastQC pipeline is available in the
+[Seven Bridges public pipelines repository](https://igor.sbgenomics.com/public/pipelines),
+we will now list all of these pipelines along with their IDs to find
+the ID that we need. We can list all public pipelines via `pipeline_list_pub()`:
+
+```{r pipeline_list_pub, eval=FALSE}
+pipeline_list = pipeline_list_pub(token)
+# convert public pipeline list to a matrix
+pipeline_mat = matrix(unlist(pipeline_list$items), ncol = 2, byrow = TRUE)
+print(pipeline_mat)
+```
+
+```
+## [,1]                       [,2]
+## [1,] "534522d3d79f0049c0c9444d" "Targeted Capture Analysis - BWA + GATK 2.3.9-Lite (with Metrics)"
+## [2,] "534522f6d79f0049c0c9444e" "Whole Exome Analysis - BWA + GATK 2.3.9-Lite (with Metrics)"
+## [3,] "5345230dd79f0049c0c9444f" "Whole Genome Analysis - BWA + GATK 2.3.9-Lite (with Metrics)"
+## [4,] "534521e5d79f0049c0c94445" "RNA-Seq Alignment for Ion Proton - TopHat + Bowtie 2"
+## [5,] "53452154d79f0049c0c94442" "RNA-Seq Alignment - TopHat"
+## [6,] "546ba1bbd79f00701cb276a6" "Cellular Research Precise Analysis Pipeline"
+## [7,] "5392689dd79f007259672c79" "Amplicon Experiment QC"
+## [8,] "53927c20d79f007259672c8e" "Amplicon Experiment QC - AmpliSeq Exomes"
+## [9,] "534521d1d79f0049c0c94444" "RNA-Seq Alignment for Ion Proton - STAR + Bowtie 2"
+## [10,] "53452130d79f0049c0c94441" "RNA-Seq Alignment - STAR"
+## [11,] "53452273d79f0049c0c94448" "RNA-Seq Differential Expression - Cuffdiff (with Visualization)"
+## [12,] "540dd19dd79f00766c174ead" "Fusion Transcript Detection - ChimeraScan"
+## [13,] "5346ba3dd79f0049c0c944a6" "RNA-Seq De Novo Assembly - Trinity"
+## [14,] "540dd2fad79f00766c174eb0" "Fusion Transcript Detection - STAR + Chimera"
+## [15,] "534521f5d79f0049c0c94446" "RNA-Seq De Novo Assembly and Analysis - Trinity"
+## [16,] "534520eed79f0049c0c9443a" "FastQC Analysis"
+## [17,] "5345222cd79f0049c0c94447" "RNA-Seq Differential Expression - Cuffdiff"
+## [18,] "53b2e456d79f004c55605245" "Trio analysis pipeline (Whole Exome)"
+## [19,] "53b2d73bd79f004c5560523d" "Trio analysis pipeline (Whole Genome)"
+## [20,] "53b2a2f0d79f004c55605227" "Illumina BAM to FASTQ"
+## [21,] "534522b0d79f0049c0c9444b" "Stanford HugeSeq WGS - from Aligned Reads (BAM)"
+## [22,] "53452dd2d79f0049c0c94459" "Alignment Metrics QC"
+## [23,] "534522c4d79f0049c0c9444c" "Stanford HugeSeq WGS - from Unaligned Reads (FASTQ)"
+## [24,] "53452299d79f0049c0c9444a" "Stanford HugeSeq WGS - Structural Variation Only"
+## [25,] "53452289d79f0049c0c94449" "Stanford HugeSeq WGS - Skip Alignment"
+## [26,] "5345210fd79f0049c0c94440" "On-target variant selection and QC"
+## [27,] "534520ffd79f0049c0c9443b" "Merge FASTQ Files"
+## [28,] "534520dad79f0049c0c94439" "Exome Variant Quality Score Recalibration - GATK 2.3.9-Lite"
+## [29,] "534520c9d79f0049c0c94438" "Exome SNP calling Ion Torrent - BWA - MEM + GATK 2.3.9-Lite (with Metrics)"
+## [30,] "534520b5d79f0049c0c94437" "Exome SNP Calling - Mosaik + FreeBayes"
+## [31,] "534520a5d79f0049c0c94432" "Exome Coverage QC"
+## [32,] "53452096d79f0049c0c94431" "Exome Analysis - BWA + GATK 1.6"
+## [33,] "53452077d79f0049c0c94430" "Convert SFF files to FASTQ files"
+## [34,] "5345205cd79f0049c0c9442f" "Convert SAM/BAM to FASTQ"
+```
+
+The pipeline we want is "FastQC Analysis", so we will copy it to our project
+using the function `pipeline_add()`:
+
+```{r pipeline_add, eval=FALSE}
+# Get the FastQC pipeline ID number in pipeline_mat
+pipeline_add(token, project_id_to = sbgr_project_id,
+             pipeline_id =
+               pipeline_mat[which(pipeline_mat[, 2] == "FastQC Analysis"), 1])
+```
+
+This call returns the details of the copied pipeline.
+
+```
+## $id
+## [1] "559c3848896a5d236e19d4a2"
+##
+## $name
+## [1] "FastQC Analysis"
+##
+## $description
+## [1] "The FastQC tool, developed by the Babraham Institute, analyzes sequence data from FASTQ, BAM, or SAM files. It produces a set of metrics and charts that help identify technical problems with the data. It's a good idea to run this pipeline on files you receive from a sequencer or a collaborator to get a general idea of how well the sequencing experiment went. Results from this pipeline can inform if and how you should proceed with your analysis."
+##
+## $revision
+## [1] "0"
+```
+
+The added pipeline could also be seen in the project we created on the
+[Seven Bridges platform](https://igor.sbgenomics.com/u/).
+
+> Note that the pipeline now has a **new** ID number. This identifies the
+pipeline within your project. The ID of a pipeline when listed in the
+public repository is **different** from its ID when listed inside your project.
+
+# Get pipeline details and find input nodes
+
+Assume we have cloned the [FastQC pipeline](https://igor.sbgenomics.com/public/pipelines/534520eed79f0049c0c9443a/)
+into our project via the above code or via the SBG platform. Now we need
+the **new** ID number of the FastQC pipeline in our project, so we can
+execute it via the API. To get the details of all available pipelines
+in your project, use `pipeline_list_project()`:
+
+```{r pipeline_list_project, eval=FALSE}
+project_pipeline = pipeline_list_project(token, project_id = sbgr_project_id)
+print(project_pipeline)
+```
+
+This will return a list of the pipelines in the specified project:
+
+```
+## $items
+## $items[[1]]
+## $items[[1]]$id
+## [1] "559c3848896a5d236e19d4a2"
+##
+## $items[[1]]$name
+## [1] "FastQC Analysis"
+```
+
+Now we can extract the ID number of the pipeline:
+
+```{r pipeline_list_project_2, eval=FALSE}
+pipeline_id = project_pipeline[["items"]][[1]][["id"]]
+```
+
+To input the file we uploaded to a pipeline, we have to get some more
+of the pipeline's details. In particular, we will need to get the ID number
+of its _input nodes_. We can list the full details of our chosen pipeline
+inside the project using the function `pipeline_details()`:
+
+```{r pipeline_details, eval=FALSE}
+fastqc_details = pipeline_details(token, project_id = sbgr_project_id,
+                 pipeline_id = pipeline_id)
+print(fastqc_details)
+```
+
+The returned list contains the information of the pipeline. We can see that
+our chosen pipeline contains a single input node with ID `177252`:
+
+```
+## $id
+## [1] "559c3848896a5d236e19d4a2"
+##
+## $name
+## [1] "FastQC Analysis"
+##
+## $description
+## [1] "The FastQC tool, developed by the Babraham Institute, analyzes sequence data from FASTQ, BAM, or SAM files. It produces a set of metrics and charts that help identify technical problems with the data. It's a good idea to run this pipeline on files you receive from a sequencer or a collaborator to get a general idea of how well the sequencing experiment went. Results from this pipeline can inform if and how you should proceed with your analysis."
+##
+## $revision
+## [1] "0"
+##
+## $inputs
+## $inputs[[1]]
+## $inputs[[1]]$id
+## [1] 177252
+##
+## $inputs[[1]]$name
+## [1] "FASTQ Reads"
+##
+## $inputs[[1]]$required
+## [1] TRUE
+##
+## $inputs[[1]]$accepts_list
+## [1] FALSE
+##
+## $inputs[[1]]$file_types
+## $inputs[[1]]$file_types[[1]]
+## [1] "bam"
+##
+## $inputs[[1]]$file_types[[2]]
+## [1] "fastq"
+##
+## $inputs[[1]]$file_types[[3]]
+## [1] "sam"
+##
+##
+##
+##
+## $nodes
+## $nodes[[1]]
+## $nodes[[1]]$id
+## [1] 680142
+##
+## $nodes[[1]]$name
+## [1] "FastQC"
+##
+## $nodes[[1]]$parameters
+## list()
+##
+##
+##
+## $outputs
+## $outputs[[1]]
+## $outputs[[1]]$id
+## [1] 556132
+##
+## $outputs[[1]]$name
+## [1] "FastQC Reports Archive"
+##
+##
+## $outputs[[2]]
+## $outputs[[2]]$id
+## [1] 1274412
+##
+## $outputs[[2]]$name
+## [1] "FastQC Charts"
+```
+
+This call returns a list of information about the FastQC pipeline.
+In particular, it gives the following information:
+
+  * `id`: The ID number of the pipeline, used by the API to uniquely
+  refer to it
+  * `revision`: The revision of the pipeline
+  * `name`: The human-readable name of the pipeline
+  * `description`: A short description of what the pipeline's function
+  * `inputs`: An array listing the pipeline's input nodes, i.e. those
+  pipeline apps which require files as input
+  * `nodes`: An array of intermediary nodes, representing the pipeline
+  apps which transform the data. These may have editable parameters
+  that should be set before running the pipeline, although in this
+  particular pipeline example no parameters are editable.
+  * `output`: An array of output nodes, representing apps that produce files,
+  reports, visualizations, etc.
+
+We will need to pay special attention to the sub-string that is a list of
+key-value pairs marked `inputs` for pipeline input nodes. Under each `input`
+node is a list of suggested files. These are the publicly available files
+that Seven Bridges Genomics recommends providing as input. Typically these
+are reference files, such as _reference genomes_, _SNP databases_,
+_known indels_, etc.
+
+By inspecting the `inputs` part of the response to the call we just made,
+we can see the names and ID numbers of the suggested files for each input app.
+Notice that there is an app named `FASTQ`, which takes fastq files as input.
+This will be where we input the file `sample1.fastq` we want to analyze.
+We could extract and store the input id as `input_id`:
+
+```{r input_id, eval=FALSE}
+input_id = fastqc_details$inputs[[1]]$id
+```
+
+# Run the pipeline
+
+Now we have collected all the necessary data to run the pipeline:
+
+Data        | R Object          | ID Number
+------------|-------------------|---------------------------------------
+Project ID  | `sbgr_project_id` | `dbf274a0-6dc5-4453-be87-b16965add1aa`
+Pipeline ID | `pipeline_id`     | `559c3848896a5d236e19d4a2`
+Input ID    | `input_id`        | `177252`
+File ID     | `file_id`         | `559c41ebe4b0566fd159709a`
+
+We can then run the pipeline task using `task_run()` to execute a task:
+
+```{r task_run, eval=FALSE}
+# put input_id and file_id into list
+inputs = list(list(file_id))
+names(inputs) = input_id
+
+# put the task info into a list
+task = list(
+  "name" = "FastQC with sbgr",
+  "description" = "FastQC task with sbgr",
+  "pipeline_id" = pipeline_id,
+  "inputs" = inputs
+  )
+
+# add and run the task
+fastqc_task = task_run(token, project_id = sbgr_project_id, task_details = task)
+print(fastqc_task)
+```
+
+If the request is well-constructed and contains valid IDs, it will return
+details of the newly-created task as a response:
+
+```
+## $id
+## [1] "2bfb18cc-f969-43a1-af75-8d63c1e0f54a"
+##
+## $name
+## [1] "FastQC with sbgr"
+##
+## $description
+## [1] "FastQC task with sbgr"
+##
+## $pipeline_id
+## [1] "559c3848896a5d236e19d4a2"
+##
+## $pipeline_revision
+## [1] "0"
+##
+## $start_time
+## [1] 1.436304e+12
+##
+## $status
+## $status$status
+## [1] "active"
+##
+##
+## $inputs
+## $inputs$`177252`
+## $inputs$`177252`[[1]]
+## [1] ":559c41ebe4b0566fd159709a"
+##
+##
+##
+## $parameters
+## $parameters$`680142`
+## $parameters$`680142`$files
+## NULL
+##
+## $parameters$`680142`$value
+## named list()
+##
+##
+##
+## $outputs
+## $outputs$`556132`
+## list()
+##
+## $outputs$`1274412`
+## list()
+```
+
+# Monitor the task and download the results
+
+Tasks typically take a long time to finish. We can periodically (say,
+every 30 seconds) check the status of a task by using the function
+`task_details()`:
+
+```{r task_details, eval=FALSE}
+while (TRUE) {
+  task_running = task_details(token, project_id = sbgr_project_id,
+                              task_id = fastqc_task$id)
+  cat("Running FastQC task...\n")
+  if (task_running[["status"]][["status"]] != "active") break
+  Sys.sleep(30)
+}
+
+print(task_running)
+```
+
+Usually after running for several minutes, the task should be finished,
+and you will receive emails when the task is finished. Alternatively,
+you could also monitor the task status in your dashboard on the SBG website.
+The output would contain the task information:
+
+```
+## $id
+## [1] "4bf0a677-cc90-4eb8-bcb7-5759adc36449"
+##
+## $name
+## [1] "FastQC with sbgr"
+##
+## $description
+## [1] "FastQC task with sbgr"
+##
+## $pipeline_id
+## [1] "559c3848896a5d236e19d4a2"
+##
+## $pipeline_revision
+## [1] "0"
+##
+## $start_time
+## [1] 1.43629e+12
+##
+## $status
+## $status$status
+## [1] "completed"
+##
+## $status$message
+## [1] "Completed."
+##
+##
+## $inputs
+## $inputs$`177252`
+## $inputs$`177252`[[1]]
+## [1] ":559c41ebe4b0566fd159709a"
+##
+##
+##
+## $parameters
+## $parameters$`680142`
+## $parameters$`680142`$files
+## NULL
+##
+## $parameters$`680142`$value
+## named list()
+##
+##
+##
+## $outputs
+## $outputs$`556132`
+## $outputs$`556132`[[1]]
+## [1] "559c44dbe4b07462e814cb7c"
+##
+##
+## $outputs$`1274412`
+## $outputs$`1274412`[[1]]
+## [1] "559c44dbe4b0566fd1597562"
+```
+
+Once a task has finished, you can locate and download its output files.
+You will need an external program like `wget` to perform the download.
+We use the function `file_download_url()` to return the download URLs of
+the output file (for example, the first output file):
+
+```{r download, eval=FALSE}
+report_url = file_download_url(token, project_id = sbgr_project_id,
+                               file_id = task_running[["outputs"]][[1]][[1]])
+download.file(url = report_url[["url"]], destfile = "fastqc_report.zip",
+              method = "wget")  # download the output archive using wget
+untar("fastqc_report.zip")  # extract the zipped files
+browseURL("sample1_fastqc/fastqc_report.html")  # open html report in browser
+```
+
+# Additional resources
+
+The [SBG Developer Hub](https://developer.sbgenomics.com) provides API
+Documentation, quickstart guide, SDK tutorials and additional information
+on developing your own applications using the Seven Bridges platform.
+
+For a related example of running a series of tasks using a fixed pipeline
+and parameters, download the archive [sbg_api_example.tar.gz](https://developer.sbgenomics.com/examples/download/sbg_api_example.tar.gz)
+which contains sample files and a full worked example in Python.
+
+# Acknowledgement
+
+This documentation is based on the original Python version of the API
+documentation and tutorials. We gratefully appreciate the support and
+excellent job from the team at Seven Bridges Genomics Inc.
+
+<hr>
+&copy; Seven Bridges Genomics 2012 - `r format(Sys.time(), "%Y")`
+
+```{r, include = FALSE}
+"There lies the port; the vessel puffs her sail:"
+```
+
+```{r, include = FALSE}
+"There gloom the dark, broad seas. My mariners,"
+```
+
+```{r, include = FALSE}
+"Souls that have toil'd, and wrought, and thought with me --"
+```
+
+```{r, include = FALSE}
+"That ever with a frolic welcome took"
+```
+
+```{r, include = FALSE}
+"The thunder and the sunshine, and opposed"
+```
+
+```{r, include = FALSE}
+"Free hearts, free foreheads -- you and I are old;"
+```
+
+```{r, include = FALSE}
+"Old age hath yet his honour and his toil;"
+```
+
+```{r, include = FALSE}
+"Death closes all: but something ere the end,"
+```
+
+```{r, include = FALSE}
+"Some work of noble note, may yet be done,"
+```
+
+```{r, include = FALSE}
+"Not unbecoming men that strove with Gods."
+```
+
+```{r, include = FALSE}
+"The lights begin to twinkle from the rocks:"
+```
+
+```{r, include = FALSE}
+"The long day wanes: the slow moon climbs: the deep"
+```
+
+```{r, include = FALSE}
+"Moans round with many voices. Come, my friends,"
+```
+
+```{r, include = FALSE}
+"'Tis not too late to seek a newer world."
+```
+
+```{r, include = FALSE}
+"Push off, and sitting well in order smite"
+```
+
+```{r, include = FALSE}
+"The sounding furrows; for my purpose holds"
+```
+
+```{r, include = FALSE}
+"To sail beyond the sunset, and the baths"
+```
+
+```{r, include = FALSE}
+"Of all the western stars, until I die."
+```
+
+```{r, include = FALSE}
+"It may be that the gulfs will wash us down:"
+```
+
+```{r, include = FALSE}
+"It may be we shall touch the Happy Isles,"
+```
+
+```{r, include = FALSE}
+"And see the great Achilles, whom we knew."
+```
+
+```{r, include = FALSE}
+"Tho' much is taken, much abides; and tho'"
+```
+
+```{r, include = FALSE}
+"We are not now that strength which in old days"
+```
+
+```{r, include = FALSE}
+"Moved earth and heaven, that which we are, we are;"
+```
+
+```{r, include = FALSE}
+"One equal temper of heroic hearts,"
+```
+
+```{r, include = FALSE}
+"Made weak by time and fate, but strong in will"
+```
+
+```{r, include = FALSE}
+"To strive, to seek, to find, and not to yield."
+```
