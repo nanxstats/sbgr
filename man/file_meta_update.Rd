@@ -85,9 +85,4 @@ token = '420b4672ebfc43bab48dc0d18a32fb6f'
             file_type = 'fastq', qual_scale = 'illumina13',
             seq_tech = 'Illumina')}
 }
-\references{
-\enumerate{
-\item \url{https://developer.sbgenomics.com/api/1.1/put/project/\%3Aproject_id/file/\%3Afile_id}
-\item \url{https://developer.sbgenomics.com/platform/metadata}}
-}
 

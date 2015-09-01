@@ -12,9 +12,6 @@
 #'
 #' @export upload_info
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/upload/multipart/\%3Aupload_id}
-#'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
 #' \donttest{req = upload_info(token,
@@ -46,8 +43,6 @@ upload_info = function (auth_token = NULL, upload_id = NULL, ...) {
 #'
 #' @export upload_info_part
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/upload/multipart/\%3Aupload_id/\%3Apart_number}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -96,8 +91,6 @@ upload_info_part = function (auth_token = NULL,
 #'
 #' @export upload_init
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/post/upload/multipart}
 #'
 #' @examples
 #' token = '58aeb140-1970-0130-6386-001f5b34aa78'
@@ -139,9 +132,6 @@ upload_init = function (auth_token = NULL, project_id = NULL,
 #'
 #' @export upload_complete_part
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/post/upload/multipart/\%3Aupload_id}
-#'
 #' @examples
 #' token = '58aeb140-1970-0130-6386-001f5b34aa78'
 #' \donttest{req = upload_complete_part(token,
@@ -178,8 +168,6 @@ upload_complete_part = function (auth_token = NULL, upload_id = NULL,
 #'
 #' @export upload_complete_all
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/post/upload/multipart/\%3Aupload_id/complete}
 #'
 #' @examples
 #' token = '58aeb140-1970-0130-6386-001f5b34aa78'
@@ -209,8 +197,6 @@ upload_complete_all = function (auth_token = NULL, upload_id = NULL, ...) {
 #'
 #' @export upload_delete
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/delete/upload/multipart/\%3Aupload_id}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'

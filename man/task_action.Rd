@@ -32,7 +32,4 @@ token = '420b4672ebfc43bab48dc0d18a32fb6f'
                 task_id = '5506a44ae4b04a4ab3ae7250',
                 action = 'abort')}
 }
-\references{
-\url{https://developer.sbgenomics.com/api/1.1/post/project/\%3Aproject_id/task/\%3Atask_id}
-}
 

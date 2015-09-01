@@ -21,7 +21,4 @@ Returns the list of pipelines in user's "My Pipelines" section.
 token = '420b4672ebfc43bab48dc0d18a32fb6f'
 \donttest{req = pipeline_list_my(token)}
 }
-\references{
-\url{https://developer.sbgenomics.com/api/1.1/get/pipeline/my}
-}
 

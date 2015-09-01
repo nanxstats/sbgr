@@ -21,7 +21,4 @@ Returns the list of all projects you have access to.
 token = '420b4672ebfc43bab48dc0d18a32fb6f'
 \donttest{req = project_list(token)}
 }
-\references{
-\url{https://developer.sbgenomics.com/api/1.1/get/project}
-}
 

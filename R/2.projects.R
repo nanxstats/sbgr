@@ -11,9 +11,6 @@
 #'
 #' @export project_list
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project}
-#'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
 #' \donttest{req = project_list(token)}
@@ -36,9 +33,6 @@ project_list = function (auth_token = NULL, ...) {
 #' @return parsed list of the returned json
 #'
 #' @export project_details
-#'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -68,9 +62,6 @@ project_details = function (auth_token = NULL, project_id = NULL, ...) {
 #' @return parsed list of the returned json
 #'
 #' @export project_members
-#'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id/members}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -105,9 +96,6 @@ project_members = function (auth_token = NULL, project_id = NULL, ...) {
 #' @return parsed list of the returned json
 #'
 #' @export project_new
-#'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/post/project}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -153,8 +141,6 @@ project_new = function (auth_token = NULL, name = NULL,
 #'
 #' @export project_member_add
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/post/project/\%3Aproject_id/members}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -203,8 +189,6 @@ project_member_add = function (auth_token = NULL, project_id = NULL,
 #'
 #' @export project_member_update
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/put/project/\%3Aproject_id/members/\%3Auser_id}
 #'
 #' @examples
 #' token = '58aeb140-1970-0130-6386-001f5b34aa78'
@@ -244,8 +228,6 @@ project_member_update = function (auth_token = NULL,
 #'
 #' @export project_delete
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/delete/project/\%3Aproject_id}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -276,8 +258,6 @@ project_delete = function (auth_token = NULL, project_id = NULL, ...) {
 #'
 #' @export project_member_delete
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/delete/project/\%3Aproject_id/members/\%3Auser_id}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'

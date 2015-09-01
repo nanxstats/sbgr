@@ -16,6 +16,9 @@
 #'
 #' @return returned request list of httr
 #'
+#' @references
+#' \url{https://docs.sbgenomics.com/display/developerhub/API}
+#'
 #' @export sbgapi
 #' @examples
 #' token <- "fake_token"

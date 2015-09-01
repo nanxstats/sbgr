@@ -40,7 +40,4 @@ token = '420b4672ebfc43bab48dc0d18a32fb6f'
                 project_id = '88fc89c1-cfcd-46ed-a830-6a2fc110c628',
                 username = 'testuser', write = TRUE)}
 }
-\references{
-\url{https://developer.sbgenomics.com/api/1.1/post/project/\%3Aproject_id/members}
-}
 

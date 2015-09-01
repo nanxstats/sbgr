@@ -18,8 +18,6 @@
 #'
 #' @export task_list
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id/task}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -65,8 +63,6 @@ task_list = function (auth_token = NULL, project_id = NULL, ...) {
 #'
 #' @export task_run
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/post/project/\%3Aproject_id/task}
 #'
 #' @examples
 #' token = '58aeb140-1970-0130-6386-001f5b34aa78'
@@ -126,8 +122,6 @@ task_run = function (auth_token = NULL,
 #'
 #' @export task_details
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id/task/\%3Atask_id}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -173,8 +167,6 @@ task_details = function (auth_token = NULL,
 #'
 #' @export task_action
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/post/project/\%3Aproject_id/task/\%3Atask_id}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'

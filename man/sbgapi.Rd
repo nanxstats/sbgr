@@ -41,4 +41,7 @@ token <- "fake_token"
 sbgapi(auth_token = token, path = 'project', method = "GET")
 }
 }
+\references{
+\url{https://docs.sbgenomics.com/display/developerhub/API}
+}
 

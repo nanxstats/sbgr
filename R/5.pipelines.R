@@ -11,9 +11,6 @@
 #'
 #' @export pipeline_list_pub
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/pipeline/public}
-#'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
 #' \donttest{req = pipeline_list_pub(token)}
@@ -37,8 +34,6 @@ pipeline_list_pub = function (auth_token = NULL, ...) {
 #'
 #' @export pipeline_list_my
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/pipeline/my}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -63,8 +58,6 @@ pipeline_list_my = function (auth_token = NULL, ...) {
 #'
 #' @export pipeline_list_project
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id/pipeline}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -101,8 +94,6 @@ pipeline_list_project = function (auth_token = NULL, project_id = NULL, ...) {
 #'
 #' @export pipeline_details
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id/pipeline/\%3Apipeline_id}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -142,8 +133,6 @@ pipeline_details = function (auth_token = NULL,
 #'
 #' @export pipeline_add
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/post/project/\%3Aproject_id/pipeline}
 #'
 #' @examples
 #' token = '58aeb140-1970-0130-6386-001f5b34aa78'

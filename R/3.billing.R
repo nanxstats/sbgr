@@ -14,8 +14,6 @@
 #'
 #' @export billing
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/billing}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'

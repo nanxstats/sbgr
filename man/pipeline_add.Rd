@@ -36,7 +36,4 @@ token = '58aeb140-1970-0130-6386-001f5b34aa78'
             project_id_from = 'f0eb447f-3511-4b28-9253-eba96191d432',
             pipeline_id = '53452130d79f0049c0c94441')}
 }
-\references{
-\url{https://developer.sbgenomics.com/api/1.1/post/project/\%3Aproject_id/pipeline}
-}
 

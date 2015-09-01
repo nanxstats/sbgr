@@ -27,7 +27,4 @@ token = '420b4672ebfc43bab48dc0d18a32fb6f'
 \donttest{req = file_list(token,
             project_id = '1c1d06d2-5862-48f6-b595-e0099b20937e')}
 }
-\references{
-\url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id/file}
-}
 

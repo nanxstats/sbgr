@@ -15,9 +15,6 @@
 #'
 #' @export file_list
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id/file}
-#'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
 #' \donttest{req = file_list(token,
@@ -46,8 +43,6 @@ file_list = function (auth_token = NULL, project_id = NULL, ...) {
 #'
 #' @export file_details
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id/file/\%3Afile_id}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -82,8 +77,6 @@ file_details = function (auth_token = NULL, project_id = NULL,
 #'
 #' @export file_copy
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/post/project/\%3Aproject_id/file}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -160,11 +153,6 @@ file_copy = function (auth_token = NULL, project_id = NULL,
 #'
 #' @export file_meta_update
 #'
-#' @references
-#' \enumerate{
-#' \item \url{https://developer.sbgenomics.com/api/1.1/put/project/\%3Aproject_id/file/\%3Afile_id}
-#' \item \url{https://developer.sbgenomics.com/platform/metadata}}
-#'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
 #' \donttest{req = file_meta_update(token,
@@ -226,8 +214,6 @@ file_meta_update = function (auth_token = NULL,
 #'
 #' @export file_delete
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/delete/project/\%3Aproject_id/file/\%3Afile_id}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'
@@ -264,8 +250,6 @@ file_delete = function (auth_token = NULL,
 #'
 #' @export file_download_url
 #'
-#' @references
-#' \url{https://developer.sbgenomics.com/api/1.1/get/project/\%3Aproject_id/file/\%3Afile_id/download}
 #'
 #' @examples
 #' token = '420b4672ebfc43bab48dc0d18a32fb6f'

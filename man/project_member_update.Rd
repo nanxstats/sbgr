@@ -42,7 +42,4 @@ token = '58aeb140-1970-0130-6386-001f5b34aa78'
             project_id = '7f7a72d0-da77-4f51-9416-99f14f7316ab',
             user_id = '08890148-6d9e-4a10-b284-924228d3f99a')}
 }
-\references{
-\url{https://developer.sbgenomics.com/api/1.1/put/project/\%3Aproject_id/members/\%3Auser_id}
-}
 
