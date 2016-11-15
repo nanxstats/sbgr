@@ -1,24 +1,14 @@
 ---
 title: "Running the FastQC Pipeline with sbgr"
 output:
-  BiocStyle::html_document:
+  rmarkdown::html_vignette:
     toc: true
+    toc_depth: 4
     number_sections: true
-    highlight: haddock
-    css: style.css
-    includes:
-      in_header: logo.md
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Running the FastQC Pipeline with sbgr}
 ---
-
-<!--
-%\VignetteIndexEntry{Running the FASTQC Pipeline with sbgr}
-%\VignettePackage{sbgr}
-%\VignetteEngine{knitr::rmarkdown}
--->
-
-```{r style, echo = FALSE, results = 'asis'}
-BiocStyle::markdown(css.files = "custom.css")
-```
 
 <!-- override white background for classless code chunks -->
 <style type="text/css" scoped>
@@ -39,7 +29,7 @@ code2 <- function(...) {
 # Introduction
 
 This guide will get you started to use Seven Bridges API with the _R_
-client package `r Biocpkg("sbgr")`, and guide you through the steps needed
+client package `sbgr`, and guide you through the steps needed
 to run the
 [FastQC Analysis pipeline](https://igor.sbgenomics.com/public/pipelines/534520eed79f0049c0c9443a/),
 a simple public pipeline on the Seven Bridges Genomics platform.
@@ -54,33 +44,11 @@ The following primary steps will be included:
 
 ## Install the package
 
-To download and install the `r Biocpkg("sbgr")` package from _Bioconductor_,
-type the following commands in _R_:
-
-```{r install, eval=FALSE}
-source("http://bioconductor.org/biocLite.R")
-biocLite("sbgr")
-```
-
-It is possible that the package is not availble in the `release` branch
-right after being pushed to Bioconductor, you may switch to the `devel`
-branch to install it and switch back to the `release` branch (if you were
-using the `release` branch at first):
-
-```{r install_2, eval=FALSE}
-source("http://bioconductor.org/biocLite.R")
-useDevel(devel = TRUE)
-biocLite("sbgr")
-useDevel(devel = FALSE)
-```
-
-Alternatively, you can install the cutting-edge development version of
-the `r Githubpkg("road2stat/sbgr")` package from GitHub:
+Install the latest development version from GitHub:
 
 ```{r install_github, eval=FALSE}
-# install.packages("devtools") if devtools was not installed
-library("devtools")
-install_github("road2stat/sbgr")
+# install.packages("devtools")  # if devtools was not installed
+devtools::install_github("road2stat/sbgr")
 ```
 
 The package runs under Microsoft Windows, OS X, and GNU/Linux. If you meet
@@ -112,8 +80,7 @@ page, click the button in the page to generate the authentication token
 (a 32-letter string).
 
 Alternatively, you could use the function `misc_get_auth_token()`
-in `r Biocpkg("sbgr")` to get the token and store it as an object
-in R workspace:
+in `sbgr` to get the token and store it as an object in R workspace:
 
 ```{r get_token, eval=FALSE}
 token = misc_get_auth_token()
@@ -293,7 +260,7 @@ partinfo = upload_info_part(token, upload_id = upload_id, part_number = 1)
 uri = partinfo[["uri"]]
 ```
 
-After we got the upload URL on Amazon S3, we could use the `r CRANpkg("httr")` package to upload the file to it:
+After we got the upload URL on Amazon S3, we could use the `httr` package to upload the file to it:
 
 ```{r upload_s3, eval=FALSE}
 library("httr")
@@ -405,7 +372,7 @@ file_meta_update(token, project_id = sbgr_project_id,
 
 The new metadata of the file will be shown after being succesfully updated.
 
-The `r Biocpkg("sbgr")` package also has a helper function
+The `sbgr` package also has a helper function
 `misc_make_metadata()` to generate metadata files. For more
 information about metadata, please refer to the
 [file metadata documentation](https://developer.sbgenomics.com/platform/metadata).
@@ -834,115 +801,7 @@ which contains sample files and a full worked example in Python.
 
 This documentation is based on the original Python version of the API
 documentation and tutorials. We gratefully appreciate the support and
-excellent job from the team at Seven Bridges Genomics Inc.
+excellent job from the team at Seven Bridges Genomics, Inc.
 
 <hr>
-&copy; Seven Bridges Genomics 2012 - `r format(Sys.time(), "%Y")`
-
-```{r, include = FALSE}
-"There lies the port; the vessel puffs her sail:"
-```
-
-```{r, include = FALSE}
-"There gloom the dark, broad seas. My mariners,"
-```
-
-```{r, include = FALSE}
-"Souls that have toil'd, and wrought, and thought with me --"
-```
-
-```{r, include = FALSE}
-"That ever with a frolic welcome took"
-```
-
-```{r, include = FALSE}
-"The thunder and the sunshine, and opposed"
-```
-
-```{r, include = FALSE}
-"Free hearts, free foreheads -- you and I are old;"
-```
-
-```{r, include = FALSE}
-"Old age hath yet his honour and his toil;"
-```
-
-```{r, include = FALSE}
-"Death closes all: but something ere the end,"
-```
-
-```{r, include = FALSE}
-"Some work of noble note, may yet be done,"
-```
-
-```{r, include = FALSE}
-"Not unbecoming men that strove with Gods."
-```
-
-```{r, include = FALSE}
-"The lights begin to twinkle from the rocks:"
-```
-
-```{r, include = FALSE}
-"The long day wanes: the slow moon climbs: the deep"
-```
-
-```{r, include = FALSE}
-"Moans round with many voices. Come, my friends,"
-```
-
-```{r, include = FALSE}
-"'Tis not too late to seek a newer world."
-```
-
-```{r, include = FALSE}
-"Push off, and sitting well in order smite"
-```
-
-```{r, include = FALSE}
-"The sounding furrows; for my purpose holds"
-```
-
-```{r, include = FALSE}
-"To sail beyond the sunset, and the baths"
-```
-
-```{r, include = FALSE}
-"Of all the western stars, until I die."
-```
-
-```{r, include = FALSE}
-"It may be that the gulfs will wash us down:"
-```
-
-```{r, include = FALSE}
-"It may be we shall touch the Happy Isles,"
-```
-
-```{r, include = FALSE}
-"And see the great Achilles, whom we knew."
-```
-
-```{r, include = FALSE}
-"Tho' much is taken, much abides; and tho'"
-```
-
-```{r, include = FALSE}
-"We are not now that strength which in old days"
-```
-
-```{r, include = FALSE}
-"Moved earth and heaven, that which we are, we are;"
-```
-
-```{r, include = FALSE}
-"One equal temper of heroic hearts,"
-```
-
-```{r, include = FALSE}
-"Made weak by time and fate, but strong in will"
-```
-
-```{r, include = FALSE}
-"To strive, to seek, to find, and not to yield."
-```
+&copy; Seven Bridges Genomics, Inc. `r format(Sys.time(), "%Y")`

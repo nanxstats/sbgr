@@ -1,30 +1,23 @@
 # R Client for Seven Bridges Genomics API
 
-[![Build Status](https://travis-ci.org/road2stat/sbgr.png?branch=master)](https://travis-ci.org/road2stat/sbgr)
+[![Build Status](https://travis-ci.org/road2stat/sbgr.svg?branch=master)](https://travis-ci.org/road2stat/sbgr)
 
-The `sbgr` package provides an R client for accessing the [Seven Bridges Genomics API](http://developer.sbgenomics.com/).
+**Note:** We recommend the users to use the [sevenbridges](https://bioconductor.org/packages/sevenbridges) package instead, since we have migrated from API v1 to API v2. This repository is mostly for archiving purpose.
+
+The `sbgr` package provides an R client for accessing the Seven Bridges Genomics API v1.
 
 ## Installation
 
-The package is currently not availble in the Bioconductor `release` branch yet until next Bioc release cycle, please switch to the `devel` branch by following code to install.
+Install the latest development version from GitHub:
 
-```
-source("http://bioconductor.org/biocLite.R")
-useDevel(devel = TRUE)
-biocLite("sbgr")
-```
-
-Alternatively, you can install the latest development version of the package from GitHub too:
-
-```
-# install.packages("devtools") if devtools was not installed
-library("devtools")
-install_github("road2stat/sbgr")
+```r
+# install.packages("devtools")  # if devtools was not installed
+devtools::install_github("road2stat/sbgr")
 ```
 
 To load the package in R, simply call
 
-```
+```r
 library("sbgr")
 ```
 
@@ -35,8 +28,6 @@ Please check out the package [page](https://www.bioconductor.org/packages/devel/
 - [Easy Cascading API for end useres](https://www.bioconductor.org/packages/devel/bioc/vignettes/sbgr/inst/doc/easy_api.html)
 - [Tutorial with functional API](http://www.bioconductor.org/packages/devel/bioc/vignettes/sbgr/inst/doc/sbgr.html) 
 
-
-
 <hr>
 
-© Seven Bridges Genomics 2012 - 2015. Licensed under the MIT license.
+© 2016 Seven Bridges Genomics, Inc. Licensed under the Apache License 2.0.

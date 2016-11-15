@@ -1,24 +1,14 @@
 ---
 title: "Easy API: A user-friendly cascading API"
 output:
-  BiocStyle::html_document:
+  rmarkdown::html_vignette:
     toc: true
+    toc_depth: 4
     number_sections: true
-    highlight: haddock
-    css: style.css
-    includes:
-      in_header: logo.md
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Easy API: A user-friendly cascading API}
 ---
-
-<!--
-%\VignetteIndexEntry{Easy API: A user-friendly cascading API}
-%\VignettePackage{sbgr}
-%\VignetteEngine{knitr::rmarkdown}
--->
-
-```{r style, echo = FALSE, results = 'asis'}
-BiocStyle::markdown(css.files = "custom.css")
-```
 
 <!-- override white background for classless code chunks -->
 <style type="text/css" scoped>
@@ -41,6 +31,7 @@ knitr::opts_chunk$set(eval = FALSE)
 ```
 
 # Introduction
+
 This "easy API" is built on lower level R API function calls provided by this package, (please check the other tutorial and manual) but with a more user friendly interface that provides
 
 - Simpler cascading style from a _Auth_ object or its children, for example
@@ -386,6 +377,3 @@ f.task$download("~/Desktop/")
 ## Abort the task
 f.task$abort()
 ```
-
-
-
