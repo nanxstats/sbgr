@@ -11,7 +11,7 @@ The `sbgr` package provides an R client for accessing the Seven Bridges Genomics
 Install the latest development version from GitHub:
 
 ```r
-# install.packages("devtools")  # if devtools was not installed
+# install.packages("devtools")
 devtools::install_github("road2stat/sbgr")
 ```
 
@@ -25,8 +25,8 @@ library("sbgr")
 
 Please check out the package [page](https://www.bioconductor.org/packages/devel/bioc/html/sbgr.html) for more information, and two tutorials
 
-- [Easy Cascading API for end useres](https://www.bioconductor.org/packages/devel/bioc/vignettes/sbgr/inst/doc/easy_api.html)
-- [Tutorial with functional API](http://www.bioconductor.org/packages/devel/bioc/vignettes/sbgr/inst/doc/sbgr.html) 
+- [Easy Cascading API for End Users](https://www.bioconductor.org/packages/devel/bioc/vignettes/sbgr/inst/doc/easy_api.html)
+- [Tutorial with Functional API](https://www.bioconductor.org/packages/devel/bioc/vignettes/sbgr/inst/doc/sbgr.html)
 
 <hr>
 
