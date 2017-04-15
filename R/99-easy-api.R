@@ -3,16 +3,18 @@ setClassUnion("numericORNULL", c("numeric", "NULL"))
 setClassUnion("listORNULL", c("list", "NULL"))
 
 ## define meta data
-.file_type <- c('text', 'binary', 'fasta', 'csfasta',
-                'fastq', 'qual', 'xsq', 'sff', 'bam',
-                'bam_index', 'illumina_export',
-                'vcf', 'sam', 'bed', 'archive',
-                'juncs', 'gtf','gff',
-                'enlis_genome', NA)
+.file_type <- c(
+    'text', 'binary', 'fasta', 'csfasta',
+    'fastq', 'qual', 'xsq', 'sff', 'bam',
+    'bam_index', 'illumina_export',
+    'vcf', 'sam', 'bed', 'archive',
+    'juncs', 'gtf','gff',
+    'enlis_genome', NA)
 
-.qual_scale <- c('sanger', 'illumina13',
-                 'illumina15', 'illumina18',
-                 'solexa', NA)
+.qual_scale <- c(
+    'sanger', 'illumina13',
+    'illumina15', 'illumina18',
+    'solexa', NA)
 
 .seq_tech <- c('454', 'Helicos', 'Illumina', 'Solid', 'IonTorrent', NA)
 .paired_end <- c(NA, "1", "2")
@@ -59,63 +61,65 @@ paired_end <- PairedEndSingleEnum <- setSingleEnum("PairedEnd", .paired_end)
 ##' levels(m$file_type)
 ##' ## to replace a Enum class need to use constructor
 ##' m$file_type <- file_type("text")
-Metadata <- setRefClass("Metadata",
-                        fields = list(
-                            file_type = "FileTypeSingleEnum",
-                            qual_scale = "QualScaleSingleEnum",
-                            seq_tech = "SeqTechSingleEnum",
-                            sample = "characterORNULL",
-                            library = "characterORNULL",
-                            platform_unit = "characterORNULL",
-                            paired_end = "PairedEndSingleEnum",
-                            extra = "listORNULL"
-                        ),
-                        methods = list(
-                            initialize = function(file_type = NA,
-                                                  qual_scale = NA,
-                                                  seq_tech = NA,
-                                                  sample = NULL,
-                                                  library = NULL,
-                                                  platform_unit = NULL,
-                                                  paired_end = NA, ...){
+Metadata <- setRefClass(
+    "Metadata",
+    fields = list(
+        file_type = "FileTypeSingleEnum",
+        qual_scale = "QualScaleSingleEnum",
+        seq_tech = "SeqTechSingleEnum",
+        sample = "characterORNULL",
+        library = "characterORNULL",
+        platform_unit = "characterORNULL",
+        paired_end = "PairedEndSingleEnum",
+        extra = "listORNULL"
+    ),
+    methods = list(
+        initialize = function(
+            file_type = NA,
+            qual_scale = NA,
+            seq_tech = NA,
+            sample = NULL,
+            library = NULL,
+            platform_unit = NULL,
+            paired_end = NA, ...){
 
-                                .l <- list(...)
-                                if(length(.l))
-                                    extra <<- .l
+            .l <- list(...)
+            if(length(.l))
+                extra <<- .l
 
-                                file_type <<- file_type(tolower(file_type))
-                                qual_scale <<- qual_scale(tolower(qual_scale))
-                                seq_tech <<- seq_tech(seq_tech)
-                                sample <<- sample
-                                library <<- library
-                                platform_unit <<- platform_unit
-                                paired_end <<- paired_end(tolower(paired_end))
+            file_type <<- file_type(tolower(file_type))
+            qual_scale <<- qual_scale(tolower(qual_scale))
+            seq_tech <<- seq_tech(seq_tech)
+            sample <<- sample
+            library <<- library
+            platform_unit <<- platform_unit
+            paired_end <<- paired_end(tolower(paired_end))
 
-                            },
-                            show = function(){
-                                .showFields(.self, "-- Metadata --",
-                                            c("file_type",
-                                              "qual_scale",
-                                              "seq_tech",
-                                              "sample",
-                                              "library",
-                                              "platform_unit",
-                                              "paired_end"))
-                                .showList(extra)
-                            },
-                            asList = function(){
-                                lst <- .getFields(.self, c("file_type",
-                                                           "qual_scale",
-                                                           "seq_tech",
-                                                           "sample",
-                                                           "library",
-                                                           "platform_unit",
-                                                           "paired_end"))
-                                res <- list(c(lst, extra))
-                                names(res) <- "metadata"
-                                res
-                            }
-                        ))
+        },
+        show = function(){
+            .showFields(.self, "-- Metadata --",
+                        c("file_type",
+                          "qual_scale",
+                          "seq_tech",
+                          "sample",
+                          "library",
+                          "platform_unit",
+                          "paired_end"))
+            .showList(extra)
+        },
+        asList = function(){
+            lst <- .getFields(.self, c("file_type",
+                                       "qual_scale",
+                                       "seq_tech",
+                                       "sample",
+                                       "library",
+                                       "platform_unit",
+                                       "paired_end"))
+            res <- list(c(lst, extra))
+            names(res) <- "metadata"
+            res
+        }
+    ))
 
 setClassUnion("MetadataORNULL", c("Metadata", "NULL"))
 
@@ -220,230 +224,233 @@ normalizeMeta <- function(x){
 ##' ## Abort the task
 ##' f.task$abort()
 ##' }
-Auth <- setRefClass("Auth", fields = list(auth_token = "character",
-                                          url = "character"),
-                    methods = list(
-                        initialize = function(
-                            auth_token = NULL,
-                            api = c("sbg-us", "cgc"),
-                            url = NULL,
-                            version = "1.1"){
+Auth <- setRefClass(
+    "Auth",
+    fields = list(
+        auth_token = "character",
+        url = "character"),
+    methods = list(
+        initialize = function(
+            auth_token = NULL,
+            api = c("sbg-us", "cgc"),
+            url = NULL,
+            version = "1.1"){
 
-                            api <- match.arg(api)
+            api <- match.arg(api)
 
-                            if(is.null(auth_token)){
-                                stop("missing token")
-                            }
-                            auth_token <<- auth_token
+            if(is.null(auth_token)){
+                stop("missing token")
+            }
+            auth_token <<- auth_token
 
-                            stopifnot(is.null(url) | is.character(url))
+            stopifnot(is.null(url) | is.character(url))
 
-                            if(is.null(url)){
-                                url <<- switch(api,
-                                               'sbg-us' =
-                                                   paste0('https://api.sbgenomics.com/', version, '/'),
-                                               'cgc' =
-                                                   paste0('https://cgc-api.sbgenomics.com/', version, '/')
-                                )
-                            }else{
-                                url <<- url
-                            }
+            if(is.null(url)){
+                url <<- switch(api,
+                               'sbg-us' =
+                                   paste0('https://api.sbgenomics.com/', version, '/'),
+                               'cgc' =
+                                   paste0('https://cgc-api.sbgenomics.com/', version, '/')
+                )
+            }else{
+                url <<- url
+            }
 
-                        },
-                        project_list = function(){
-                            res <- sbgr::project_list(auth_token,
-                                                      base_url = url)
-                            .asProjectList(res[[1]])
-                        },
-                        project_new = function(name = NULL,
-                                               description = NULL,
-                                               billing_group_id = NULL){
-                            res <- sbgr::project_new(auth_token, name = name,
-                                                     base_url = url,
-                                                     description = description,
-                                                     billing_group_id = billing_group_id)
+        },
+        project_list = function(){
+            res <- sbgr::project_list(auth_token,
+                                      base_url = url)
+            .asProjectList(res[[1]])
+        },
+        project_new = function(name = NULL,
+                               description = NULL,
+                               billing_group_id = NULL){
+            res <- sbgr::project_new(auth_token, name = name,
+                                     base_url = url,
+                                     description = description,
+                                     billing_group_id = billing_group_id)
 
-                            .asProject(res)
-                        },
-                        project_delete = function(id = NULL,
-                                                  name = NULL){
-                            if(!is.null(id)){
-                                sbgr::project_delete(auth_token,
-                                                     base_url = url,
-                                                     project_id = id)
-                            }else{
-                                ## match name
-                                message("Matching by names")
-                                p <- .self$project(name = name)
-                                message("Following projects will be deleted")
-                                print(p)
-                                sbgr::project_delete(auth_token,
-                                                     base_url = url,
-                                                     project_id = p$id)
-                            }
-                        },
-                        project = function(
-                            name = NULL,
-                            id = NULL,
-                            index = NULL,
+            .asProject(res)
+        },
+        project_delete = function(id = NULL,
+                                  name = NULL){
+            if(!is.null(id)){
+                sbgr::project_delete(auth_token,
+                                     base_url = url,
+                                     project_id = id)
+            }else{
+                ## match name
+                message("Matching by names")
+                p <- .self$project(name = name)
+                message("Following projects will be deleted")
+                print(p)
+                sbgr::project_delete(auth_token,
+                                     base_url = url,
+                                     project_id = p$id)
+            }
+        },
+        project = function(
+            name = NULL,
+            id = NULL,
+            index = NULL,
+            ignore.case = TRUE,
+            exact = TRUE){
+            'find project'
+
+            pl <- .self$project_list()
+            res <- m.match(pl, id = id, name = name, exact = exact,
+                           ignore.case = ignore.case)
+            if(is(res, "Project")){
+                res$auth <- .self
+            }else if(is.list(res) &&
+                     all(sapply(res, is, "Project"))){
+                res <- lapply(res, function(x){
+                    x$auth <- .self
+                    x
+                })
+            }
+            res
+        },
+        pipeline = function(repos = c("public", "my", "project"),
+                            project_name = NULL,
+                            project_id = NULL,
+                            pipeline_name = NULL,
+                            pipeline_id = NULL,
                             ignore.case = TRUE,
-                            exact = TRUE){
-                            'find project'
+                            exact = FALSE,
+                            detail = TRUE){
+            repos <- match.arg(repos)
 
-                            pl <- .self$project_list()
-                            res <- m.match(pl, id = id, name = name, exact = exact,
-                                           ignore.case = ignore.case)
-                            if(is(res, "Project")){
-                                res$auth <- .self
-                            }else if(is.list(res) &&
-                                         all(sapply(res, is, "Project"))){
-                                res <- lapply(res, function(x){
-                                    x$auth <- .self
-                                    x
-                                })
-                            }
-                            res
-                        },
-                        pipeline = function(repos = c("public", "my", "project"),
-                                            project_name = NULL,
-                                            project_id = NULL,
-                                            pipeline_name = NULL,
-                                            pipeline_id = NULL,
-                                            ignore.case = TRUE,
-                                            exact = FALSE,
-                                            detail = TRUE){
-                            repos <- match.arg(repos)
+            if(is.null(project_name) &
+               is.null(project_id)){
+                if(repos == "public"){
+                    res <- pipeline_list_pub()
+                }else if(repos == "my"){
+                    res <- pipeline_list_my()
+                }else{
+                    stop("Please provide project_name or project_id")
+                }
+            }else{
+                repos <- "project"
+                res <- pipeline_list_project(project_name,
+                                             project_id)
+            }
 
-                            if(is.null(project_name) &
-                                   is.null(project_id)){
-                                if(repos == "public"){
-                                    res <- pipeline_list_pub()
-                                }else if(repos == "my"){
-                                    res <- pipeline_list_my()
-                                }else{
-                                    stop("Please provide project_name or project_id")
-                                }
-                            }else{
-                                repos <- "project"
-                                res <- pipeline_list_project(project_name,
-                                                             project_id)
-                            }
+            if(!is.null(pipeline_name) | !is.null(pipeline_id)){
+                res <- m.match(res,
+                               id = pipeline_id,
+                               name = pipeline_name,
+                               ignore.case = ignore.case,
+                               exact = exact)
+            }
 
-                            if(!is.null(pipeline_name) | !is.null(pipeline_id)){
-                                res <- m.match(res,
-                                               id = pipeline_id,
-                                               name = pipeline_name,
-                                               ignore.case = ignore.case,
-                                               exact = exact)
-                            }
+            if(is(res, "Pipeline")){
+                res$repos <- repos
+                res$auth <- .self
 
-                            if(is(res, "Pipeline")){
-                                res$repos <- repos
-                                res$auth <- .self
-
-                            }else if(all(sapply(res, is, "Pipeline"))){
-                                res <- lapply(res, function(x){
-                                    x$repos <- repos
-                                    x$auth <- .self
-                                    x
-                                })
-                            }
+            }else if(all(sapply(res, is, "Pipeline"))){
+                res <- lapply(res, function(x){
+                    x$repos <- repos
+                    x$auth <- .self
+                    x
+                })
+            }
 
 
-                            res
-                        },
-                        pipeline_list_pub = function(){
-                            res <- sbgr::pipeline_list_pub(auth_token,
-                                                           base_url = url)
-                            res <- .asPipelineList(res[[1]])
-                            lapply(res, function(x) {
-                                ## x$set_auth(auth_token)
-                                #x$project_id <- id
-                                x})
-                        },
-                        pipeline_list_my = function(){
-                            res <- sbgr::pipeline_list_my(auth_token,
-                                                          base_url = url)
-                            res <- .asPipelineList(res[[1]])
-                            lapply(res, function(x) {
-                                ## x$set_auth(auth_token)
-                                #x$project_id <- id
-                                x})
-                        },
-                        pipeline_list_project = function(name = NULL,
-                                                         project_id = NULL,
-                                                         id = project_id){
+            res
+        },
+        pipeline_list_pub = function(){
+            res <- sbgr::pipeline_list_pub(auth_token,
+                                           base_url = url)
+            res <- .asPipelineList(res[[1]])
+            lapply(res, function(x) {
+                ## x$set_auth(auth_token)
+                #x$project_id <- id
+                x})
+        },
+        pipeline_list_my = function(){
+            res <- sbgr::pipeline_list_my(auth_token,
+                                          base_url = url)
+            res <- .asPipelineList(res[[1]])
+            lapply(res, function(x) {
+                ## x$set_auth(auth_token)
+                #x$project_id <- id
+                x})
+        },
+        pipeline_list_project = function(name = NULL,
+                                         project_id = NULL,
+                                         id = project_id){
 
-                            if(is.null(id)){
-                                id <- project(name = name)$id
-                            }
-                            p <- project(name = name, id = id)
-                            res <- p$pipeline()
-                            ## add id
-                            res
-                        },
-                        pipeline_add = function(project_name_to,
-                                                project_name_from = NULL,
-                                                pipeline_name = NULL,
-                                                project_id_from = NULL,
-                                                project_id_to = NULL,
-                                                pipeline_id = NULL,
-                                                revision = NULL,
-                                                exact = TRUE){
+            if(is.null(id)){
+                id <- project(name = name)$id
+            }
+            p <- project(name = name, id = id)
+            res <- p$pipeline()
+            ## add id
+            res
+        },
+        pipeline_add = function(project_name_to,
+                                project_name_from = NULL,
+                                pipeline_name = NULL,
+                                project_id_from = NULL,
+                                project_id_to = NULL,
+                                pipeline_id = NULL,
+                                revision = NULL,
+                                exact = TRUE){
 
-                            if(is.null(project_id_from)){
-                                if(is.null(project_name_from)){
-                                    warning("omit project name or id, assume it's public")
-                                }else{
-                                    project_id_from <- project(project_name_from)$id
-                                }
-                            }
+            if(is.null(project_id_from)){
+                if(is.null(project_name_from)){
+                    warning("omit project name or id, assume it's public")
+                }else{
+                    project_id_from <- project(project_name_from)$id
+                }
+            }
 
-                            if(is.null(project_id_to)){
-                                if(is.null(project_name_to)){
-                                    stop("project(from) id or name must be provided")
-                                }else{
+            if(is.null(project_id_to)){
+                if(is.null(project_name_to)){
+                    stop("project(from) id or name must be provided")
+                }else{
 
-                                    project_id_to <- project(project_name_to)$id
-                                }
-                            }
+                    project_id_to <- project(project_name_to)$id
+                }
+            }
 
-                            if(is.null(pipeline_id)){
-                                if(is.null(pipeline_name)){
-                                    stop("Pipeline id or name must be provided")
-                                }else{
-                                    if(is.null(project_id_from)){
-                                        ## this is a public project, then match pipe again
-                                        pipes <- pipeline_list_pub()
-                                        pipeline_id <- m.match(pipes, name = pipeline_name, id = pipeline_id, exact = exact)$id
-                                    }else{
-                                        p <- project(id = project_id_from)
-                                        pipeline_id <- p$pipeline(pipeline_name, pipeline_id)$id
-                                    }
-                                }
-                            }
-                            res <- sbgr::pipeline_add(auth_token, base_url = url,
-                                                      project_id_to = project_id_to,
-                                                      project_id_from = project_id_from,
-                                                      pipeline_id = pipeline_id,
-                                                      revision = revision)
-                            .asPipeline(res)
+            if(is.null(pipeline_id)){
+                if(is.null(pipeline_name)){
+                    stop("Pipeline id or name must be provided")
+                }else{
+                    if(is.null(project_id_from)){
+                        ## this is a public project, then match pipe again
+                        pipes <- pipeline_list_pub()
+                        pipeline_id <- m.match(pipes, name = pipeline_name, id = pipeline_id, exact = exact)$id
+                    }else{
+                        p <- project(id = project_id_from)
+                        pipeline_id <- p$pipeline(pipeline_name, pipeline_id)$id
+                    }
+                }
+            }
+            res <- sbgr::pipeline_add(auth_token, base_url = url,
+                                      project_id_to = project_id_to,
+                                      project_id_from = project_id_from,
+                                      pipeline_id = pipeline_id,
+                                      revision = revision)
+            .asPipeline(res)
 
-                        },
-                        billing = function(){
-                            res <- sbgr::billing(auth_token, base_url = url)
-                            res <- .asBillingList(res[[1]])
-                            lapply(res, function(x){
-                                x$auth <- .self
-                                x
-                            })
-                        },
+        },
+        billing = function(){
+            res <- sbgr::billing(auth_token, base_url = url)
+            res <- .asBillingList(res[[1]])
+            lapply(res, function(x){
+                x$auth <- .self
+                x
+            })
+        },
 
-                        show = function(){
-                            .showFields(.self, "== Auth ==",
-                                        values = c("auth_token", "url"))
-                        }
-                    ))
+        show = function(){
+            .showFields(.self, "== Auth ==",
+                        values = c("auth_token", "url"))
+        }
+    ))
 
 setClassUnion("AuthORNULL", c("Auth", "NULL"))
 
@@ -640,7 +647,7 @@ Project <- setRefClass("Project", contains = "Item",
                                    res$repos <- "project"
                                    res$auth <- .self$auth
                                }else if(is.list(res) &&
-                                            all(sapply(res, is, "Pipeline"))){
+                                        all(sapply(res, is, "Pipeline"))){
                                    res <- lapply(res, function(x) {
                                        x$project_id <- .self$id
                                        x$repos <- "project"
@@ -689,7 +696,7 @@ Project <- setRefClass("Project", contains = "Item",
                                    res$project_id <- .self$id
                                    res$auth <- .self$auth
                                }else if(is.list(res) &&
-                                            all(sapply(res, is, "File"))){
+                                        all(sapply(res, is, "File"))){
                                    res <- lapply(res, function(x) {
                                        x$project_id <- .self$id
                                        x$auth <- .self$auth
@@ -743,7 +750,7 @@ Project <- setRefClass("Project", contains = "Item",
                                    res$project_id <- .self$id
                                    res$auth <- .self$auth
                                }else if(is.list(res) &&
-                                            all(sapply(res, is, "Task"))){
+                                        all(sapply(res, is, "Task"))){
                                    res <- lapply(res, function(x) {
                                        x$project_id <- .self$id
                                        x$auth <- .self$auth
@@ -990,7 +997,7 @@ Upload <- setRefClass("Upload", contains = "Item",
 
                               if(is.numeric(.self$size)){
                                   if(!(.self$size <= 5497558138880 &
-                                           .self$size >= 0))
+                                       .self$size >= 0))
                                       stop("size must be between 0 - 5497558138880, inclusive")
                               }else{
                                   stop("size must be between 0 - 5497558138880, inclusive")
@@ -1226,7 +1233,7 @@ File <- setRefClass("File", contains = "Item",
                         set_metadata = function(metadata = list(),
                                                 append = FALSE, clean = FALSE){
                             'when append = TRUE, keep original, overwrite with the new value;
-                             if FALSE, clean meta and replace everything with new metadata'
+                            if FALSE, clean meta and replace everything with new metadata'
 
                             o <- .self$metadata
                             if(length(metadata)){
@@ -1522,8 +1529,3 @@ Task <- setRefClass("Task", contains = "Item",
 .asTaskList <- function(x){
     lapply(x, .asTask)
 }
-
-
-
-
-

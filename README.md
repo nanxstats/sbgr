@@ -16,13 +16,7 @@ Install the development version from GitHub:
 devtools::install_github("road2stat/sbgr")
 ```
 
-To load the package in R, simply call
-
-```r
-library("sbgr")
-```
-
-## Manual and Vignettes
+## Documentation
 
 Please check out the package [page](https://www.bioconductor.org/packages/devel/bioc/html/sbgr.html) for more information, and two tutorials
 
