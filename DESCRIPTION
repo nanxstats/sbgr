@@ -1,19 +1,19 @@
 Package: sbgr
 Type: Package
-Title: R Client for Seven Bridges Genomics API
+Title: R Client for Seven Bridges Genomics API (v1)
 Version: 1.1.1
 Authors@R: c(
-    person("Nan", "Xiao", email = "nan.xiao@sbgenomics.com", role = c("aut", "cre")),
-    person("Tengfei", "Yin", email = "tengfei.yin@sbgenomics.com", role = c("aut")),
+    person("Nan", "Xiao", email = "nan.xiao@sevenbridges.com", role = c("aut", "cre")),
+    person("Tengfei", "Yin", email = "tengfei.yin@sevenbridges.com", role = c("aut")),
     person("Seven Bridges Genomics", role = c("cph", "fnd"))
     )
-Maintainer: Nan Xiao <nan.xiao@sbgenomics.com>
+Maintainer: Nan Xiao <nan.xiao@sevenbridges.com>
 Description: R client for Seven Bridges Genomics API (v1).
 License: Apache License 2.0 | file LICENSE
-VignetteBuilder: knitr
-URL: https://www.sbgenomics.com
+URL: https://www.sevenbridges.com, https://github.com/road2stat/sbgr
 BugReports: https://github.com/road2stat/sbgr/issues
 biocViews: Software, DataImport, ThirdPartyClient
+VignetteBuilder: knitr
 Depends:
     methods,
     utils,

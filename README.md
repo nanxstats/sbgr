@@ -1,14 +1,15 @@
 # R Client for Seven Bridges Genomics API
 
 [![Build Status](https://travis-ci.org/road2stat/sbgr.svg?branch=master)](https://travis-ci.org/road2stat/sbgr)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/road2stat/sbgr?branch=master&svg=true)](https://ci.appveyor.com/project/road2stat/sbgr)
 
-**Note:** We recommend the users to use the [sevenbridges](https://bioconductor.org/packages/sevenbridges) package instead, since we have migrated from API v1 to API v2. This repository is mostly for archiving purpose.
+**Note:** We recommend to use the [sevenbridges](https://bioconductor.org/packages/sevenbridges) package instead, since we have migrated from API v1 to API v2. This repository is mostly for archiving purposes.
 
 The `sbgr` package provides an R client for accessing the Seven Bridges Genomics API v1.
 
 ## Installation
 
-Install the latest development version from GitHub:
+Install the development version from GitHub:
 
 ```r
 # install.packages("devtools")
@@ -30,4 +31,4 @@ Please check out the package [page](https://www.bioconductor.org/packages/devel/
 
 <hr>
 
-© 2016 Seven Bridges Genomics, Inc. Licensed under the Apache License 2.0.
+© 2017 Seven Bridges Genomics, Inc. Licensed under the Apache License 2.0.
