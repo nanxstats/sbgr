@@ -66,13 +66,11 @@ token <- "aef7e9e3f6c54fb1b338ac4ecddf1a56"
 a <- Auth(token)
 ## A task constructor
 Task(auth = Auth(token),
-              name = "my task",
-              description = "A text description",
-              pipeline_id = "fake_pipeline_id",
-              project_id = "fake_project_id",
-              inputs = list(
-                  "177252" = list("fake_id")
-                  ))
+     name = "my task",
+     description = "A text description",
+     pipeline_id = "fake_pipeline_id",
+     project_id = "fake_project_id",
+     inputs = list("177252" = list("fake_id")))
 \donttest{
 ## replace with real token then follow the examples here
 ## get billing info
@@ -83,22 +81,20 @@ f.pipe <- p$pipeline(name = "FastQC")
 ## check the inputs needed for running tasks
 f.pipe$details()
 ## Ready to run a task? go
-f.task <- p$task_run(name = "my task",
-                      description = "A text description",
-                      pipeline_id = f.pipe$id,
-                      inputs = list(
-                          "177252" = list(f.file$id)
-                          ))
+f.task <- p$task_run(
+  name = "my task",
+  description = "A text description",
+  pipeline_id = f.pipe$id,
+  inputs = list("177252" = list(f.file$id)))
 f.task$run()
 ## or you can just run with Task constructor
-f.task <- Task(auth = Auth(token),
-               name = "my task",
-               description = "A text description",
-               pipeline_id = f.pipe$id,
-               project_id = p$id,
-               inputs = list(
-                   "177252" = list(f.file$id)
-                   ))
+f.task <- Task(
+  auth = Auth(token),
+  name = "my task",
+  description = "A text description",
+  pipeline_id = f.pipe$id,
+  project_id = p$id,
+  inputs = list("177252" = list(f.file$id)))
 ## Monitor you task
 f.task$monitor(30)
 

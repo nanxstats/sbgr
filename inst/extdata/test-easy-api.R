@@ -42,21 +42,21 @@ f.pipe$details()
 ## Ready to run a task? go
 message("running task ...")
 f.task <- p$task_run(name = "my task",
-                      description = "A text description",
-                      pipeline_id = f.pipe$id,
-                      inputs = list(
-                          "177252" = list(f.file$id)
-                          ))
+                     description = "A text description",
+                     pipeline_id = f.pipe$id,
+                     inputs = list(
+                         "177252" = list(f.file$id)
+                     ))
 
 ## or you can just run with Task constructor
 f.task2 <- Task(auth = a,
-               name = "my task2",
-               description = "A text description",
-               pipeline_id = f.pipe$id,
-               project_id = p$id,
-               inputs = list(
-                   "177252" = list(f.file$id)
-                   ))
+                name = "my task2",
+                description = "A text description",
+                pipeline_id = f.pipe$id,
+                project_id = p$id,
+                inputs = list(
+                    "177252" = list(f.file$id)
+                ))
 f.task2$run()
 ## Abort the task
 f.task2$abort()
@@ -65,5 +65,3 @@ f.task$monitor(30)
 
 ## download a task output files
 f.task$download("~/Desktop/")
-
-
