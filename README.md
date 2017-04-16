@@ -1,9 +1,9 @@
-# R Client for Seven Bridges Genomics API
+# R Client for Seven Bridges Genomics API (v1)
 
 [![Build Status](https://travis-ci.org/road2stat/sbgr.svg?branch=master)](https://travis-ci.org/road2stat/sbgr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/road2stat/sbgr?branch=master&svg=true)](https://ci.appveyor.com/project/road2stat/sbgr)
 
-**Note:** We recommend to use the [sevenbridges](https://bioconductor.org/packages/sevenbridges) package instead, since we have migrated from API v1 to API v2. This repository is mostly for archiving purposes.
+**Note:** This is a legacy project. We recommend all user to use the [sevenbridges](https://bioconductor.org/packages/sevenbridges) package instead, since we have migrated from API v1 to API v2.
 
 The `sbgr` package provides an R client for accessing the Seven Bridges Genomics API v1.
 
@@ -18,10 +18,9 @@ devtools::install_github("road2stat/sbgr")
 
 ## Documentation
 
-Please check out the package [page](https://www.bioconductor.org/packages/devel/bioc/html/sbgr.html) for more information, and two tutorials
-
-- [Easy Cascading API for End Users](https://www.bioconductor.org/packages/devel/bioc/vignettes/sbgr/inst/doc/easy_api.html)
-- [Tutorial with Functional API](https://www.bioconductor.org/packages/devel/bioc/vignettes/sbgr/inst/doc/sbgr.html)
+- [Easy Cascading API for End Users](https://nanx.me/sbgr/articles/easy-api.html)
+- [Functional API Tutorial](https://nanx.me/sbgr/articles/sbgr.html)
+- [Function Reference Manual](https://nanx.me/sbgr/reference/)
 
 <hr>
 
