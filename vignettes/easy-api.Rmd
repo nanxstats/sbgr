@@ -5,6 +5,7 @@ output:
     toc: true
     toc_depth: 4
     number_sections: true
+    css: sevenbridges.css
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{Easy API: A User-Friendly Cascading API}

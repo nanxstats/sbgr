@@ -5,6 +5,7 @@ output:
     toc: true
     toc_depth: 4
     number_sections: true
+    css: sevenbridges.css
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{Running the FastQC Pipeline with sbgr}
