@@ -3,12 +3,12 @@
 \docType{class}
 \name{FileTypeSingleEnum-class}
 \alias{FileTypeSingleEnum-class}
-\alias{Metadata}
-\alias{Metadata-class}
 \alias{file_type}
-\alias{paired_end}
 \alias{qual_scale}
 \alias{seq_tech}
+\alias{paired_end}
+\alias{Metadata-class}
+\alias{Metadata}
 \title{Metadata class}
 \description{
 Metadata class
@@ -28,6 +28,7 @@ from characters, it has validation against levels, to check their
 levels, you can simply create a empty Metadata object and access
 the field levels. Please see examples.
 }
+
 \examples{
 m <- Metadata()
 ## to check levels
@@ -39,4 +40,3 @@ m$file_type <- file_type("text")
 \references{
 \url{https://docs.sbgenomics.com/display/sbg/Metadata}
 }
-

@@ -45,4 +45,3 @@ req2 = task_details(token,
        project_id = '1c1d06d2-5862-48f6-b595-e0099b20937e',
        task_id = '22237', download.url = TRUE)}
 }
-

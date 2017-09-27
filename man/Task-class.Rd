@@ -2,8 +2,8 @@
 % Please edit documentation in R/99-easy-api.R
 \docType{class}
 \name{Task-class}
-\alias{Task}
 \alias{Task-class}
+\alias{Task}
 \title{Task class}
 \description{
 Task class
@@ -61,6 +61,8 @@ key-value pairs.}
 \item{\code{project_id}}{[characterORNULL] required for task execution.
 ID of the project you want to execute the task in.}
 }}
+
+
 \examples{
 token <- "aef7e9e3f6c54fb1b338ac4ecddf1a56"
 a <- Auth(token)
@@ -106,4 +108,3 @@ f.task$download("~/Desktop/")
 f.task$abort()
 }
 }
-

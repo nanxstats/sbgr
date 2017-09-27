@@ -2,8 +2,8 @@
 % Please edit documentation in R/99-easy-api.R
 \docType{class}
 \name{Item-class}
-\alias{Item}
 \alias{Item-class}
+\alias{Item}
 \title{Class Item}
 \description{
 Class Item
@@ -18,4 +18,5 @@ To describe a set of objects, Project, Task, Pipeline, File etc.
 
 \item{\code{auth_token}}{propagate the auth_token from parent.}
 }}
+
 

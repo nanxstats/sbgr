@@ -21,4 +21,3 @@ Download SBG uploader and extract to a specified directory.
 dir = '~/sbg-uploader/'
 \donttest{misc_get_uploader(dir)}
 }
-

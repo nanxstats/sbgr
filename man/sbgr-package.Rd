@@ -17,4 +17,3 @@ License: \tab Apache License 2.0\cr }
 Nan Xiao <\email{nan.xiao@sevenbridges.com}>
         Teng-Fei Yin <\email{tengfei.yin@sevenbridges.com}>
 }
-

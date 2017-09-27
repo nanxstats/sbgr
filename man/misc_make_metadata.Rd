@@ -86,4 +86,3 @@ destfile = '~/c.elegans_chr2_test.fastq.meta'
 \references{
 \url{https://developer.sbgenomics.com/platform/metadata}
 }
-

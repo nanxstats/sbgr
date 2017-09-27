@@ -55,4 +55,3 @@ details = list(
                 project_id = '7f7a72d0-da77-4f51-9416-99f14f7316ab',
                 task_details = details)}
 }
-

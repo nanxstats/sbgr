@@ -24,4 +24,3 @@ available via the SBG public API yet.
 token = '420b4672ebfc43bab48dc0d18a32fb6f'
 \donttest{req = billing(token)}
 }
-

@@ -2,8 +2,8 @@
 % Please edit documentation in R/99-easy-api.R
 \docType{class}
 \name{Auth-class}
-\alias{Auth}
 \alias{Auth-class}
+\alias{Auth}
 \title{Class Auth}
 \arguments{
 \item{auth_token}{[character] your auth token.}
@@ -32,12 +32,14 @@ could start from this object using cascading style. Please check vignette
 \item{\code{url}}{[character] basic url used for API, by default
 it's \url{https://api.sbgenomics.com/1.1/}}
 }}
+
 \section{Methods}{
 
 \describe{
 \item{\code{project(name = NULL, id = NULL, index = NULL, ignore.case = TRUE,
   exact = TRUE)}}{find project}
 }}
+
 \examples{
 ## replace it with real token
 token <- "aef7e9e3f6c54fb1b338ac4ecddf1a56"
@@ -96,4 +98,3 @@ f.task$download("~/Desktop/")
 f.task$abort()
 }
 }
-

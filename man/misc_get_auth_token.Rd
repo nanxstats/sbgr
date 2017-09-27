@@ -19,4 +19,3 @@ string to the R console. The function will return the token string.
 token = NULL
 \donttest{token = misc_get_auth_token()}
 }
-

@@ -38,4 +38,3 @@ token = '420b4672ebfc43bab48dc0d18a32fb6f'
 \references{
 \url{https://developer.sbgenomics.com/tools/uploader/documentation}
 }
-

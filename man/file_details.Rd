@@ -27,4 +27,3 @@ token = '420b4672ebfc43bab48dc0d18a32fb6f'
             project_id = '1c1d06d2-5862-48f6-b595-e0099b20937e',
             file_id = '530854e2e4b036506b803c7e')}
 }
-

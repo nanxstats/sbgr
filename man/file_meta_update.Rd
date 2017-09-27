@@ -85,4 +85,3 @@ token = '420b4672ebfc43bab48dc0d18a32fb6f'
             file_type = 'fastq', qual_scale = 'illumina13',
             seq_tech = 'Illumina')}
 }
-

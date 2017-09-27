@@ -24,4 +24,3 @@ token = '420b4672ebfc43bab48dc0d18a32fb6f'
 \donttest{req = project_delete(token,
             project_id = '3a21ade8-ef3e-41f8-8ac2-1dc3b434ac77')}
 }
-

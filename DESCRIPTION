@@ -1,7 +1,7 @@
 Package: sbgr
 Type: Package
 Title: R Client for Seven Bridges Genomics API (v1)
-Version: 1.1.1
+Version: 1.1.2
 Authors@R: c(
     person("Nan", "Xiao", email = "nan.xiao@sevenbridges.com", role = c("aut", "cre")),
     person("Tengfei", "Yin", email = "tengfei.yin@sevenbridges.com", role = c("aut")),
@@ -27,4 +27,5 @@ Suggests:
     rmarkdown,
     testthat
 NeedsCompilation: no
-RoxygenNote: 5.0.1
+Encoding: UTF-8
+RoxygenNote: 6.0.1.9000
