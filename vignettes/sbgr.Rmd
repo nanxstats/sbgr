@@ -70,15 +70,9 @@ The authentication token is used as an _password_ to identify yourself
 when aceessing the API. Please remember to keep your authentication token
 secure.
 
-To get your authentication token,
-[register an account](https://igor.sbgenomics.com/register/)
-(if you have already registered, please skip) and
-[log in](https://igor.sbgenomics.com/login/) to the dashboard of the
-Seven Bridges Platform.
-
-Open the [Account settings - Developer](https://igor.sbgenomics.com/account/?current=developer#developer)
-page, click the button in the page to generate the authentication token
-(a 32-letter string).
+To get your authentication token, please [login](https://accounts.sbgenomics.com/)
+to the Seven Bridges Platform. Go to the _Developer - Auth Token_ tab,
+then click the button to generate the auth token.
 
 Alternatively, you could use the function `misc_get_auth_token()`
 in `sbgr` to get the token and store it as an object in R workspace:
