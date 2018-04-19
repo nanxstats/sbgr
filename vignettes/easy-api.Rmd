@@ -141,8 +141,9 @@ a$project(name = "my first") # return one matching
 Maybe you want to create another project called "API" just for testing, but make sure you pass the required field `name`, `description` and `billing_group_id`.
 
 ```{r}
-a$project_new(name = "API", description = "API tutorial",
-              billing_group_id = b[[1]]$id)
+a$project_new(
+  name = "API", description = "API tutorial",
+  billing_group_id = b[[1]]$id)
 ```
 
 ## Upload file and set metadata
@@ -167,10 +168,11 @@ Get the file we are going to upload and get the metadata ready as well.
 ```{r}
 fl <- system.file("extdata", "sample1.fastq", package = "sbgr")
 ## create meta data
-fl.meta <- list(file_type = "fastq",
-                seq_tech = "Illumina",
-                sample = "sample1",
-                author = "tengfei")
+fl.meta <- list(
+  file_type = "fastq",
+  seq_tech = "Illumina",
+  sample = "sample1",
+  author = "tengfei")
 ```
 
 To upload the file to the project, just call `upload` method from project object, it will initialize the multiparts automatically, checking each part and complete the call when finished. You will see the progress bar.
@@ -212,8 +214,11 @@ To add more metadata items, you can pass more named list entries, and to keep or
 ```{r}
 p$file(basename(fl))$set_metadata(list(version = "2.0"), append = TRUE)
 ```
+
 Read more about metadata please visit SBG [developer hub page](https://docs.sbgenomics.com/display/sbg/Metadata)
+
 ### Delete a file
+
 To delete a file, just call `delete` method on a _File_ object. for example.
 
 ```{r}
@@ -237,7 +242,6 @@ a$pipeline()
 a$pipeline("my")
 ## particular project
 a$pipeline(project_name = "my first")
-
 ```
 
 Let's look for a pipeline about "FastQC", from public repos
@@ -276,20 +280,21 @@ f.pipe$details()
 f.pipe$details()$inputs
 f.pipe$details()$nodes
 ```
+
 To run the pipeline, we need to provide task details, we know we want to input our upload sample file as input node here. So we need to link our file id with the input node id.
 
 ```{r}
-f.task <- p$task_run(name = "my task",
-                      description = "A text description",
-                      pipeline_id = f.pipe$id,
-                      inputs = list(
-                          "177252" = list(f.file$id)
-                          ))
+f.task <- p$task_run(
+  name = "my task",
+  description = "A text description",
+  pipeline_id = f.pipe$id,
+  inputs = list("177252" = list(f.file$id)))
 
 f.task
 ```
 
 ## Monitor your task
+
 Pass the interval time (in seconds) this will check status of a task, print finish when it's finished.
 
 ```{r}
@@ -315,53 +320,68 @@ f.task$download("~/Desktop/")
 ```
 
 ## Wrap the example up
-Ok the full script is something like
+
+Ok, the full script is something like
+
 ```{r, eval = FALSE}
-library(sbgr)
+library("sbgr")
 token <- "aef7e9e3f6c54fb1b338ac4ecddf1a56"
 a <- Auth(token)
+
 ## get billing info
 b <- a$billing()
+
 ## create project
-a$project_new(name = "API", description = "API tutorial",
-              billing_group_id = b[[1]]$id)
+a$project_new(
+  name = "API", description = "API tutorial",
+  billing_group_id = b[[1]]$id)
 p <- a$project("API")
+
 ## get data
 fl <- system.file("extdata", "sample1.fastq", package = "sbgr")
+
 ## create meta data
-fl.meta <- list(file_type = "fastq",
-                seq_tech = "Illumina",
-                sample = "sample1",
-                author = "tengfei")
+fl.meta <- list(
+  file_type = "fastq",
+  seq_tech = "Illumina",
+  sample = "sample1",
+  author = "tengfei")
+
 ## upload data with metadata
 p$upload(fl, metadata = fl.meta)
+
 ## check uploading success
 f.file <- p$file(basename(fl))
+
 ## get the pipeline from public repos
 f.pipe <- a$pipeline(pipeline_name = "FastQC")
+
 ## copy the pipeline to your poject
 p$pipeline_add(pipeline_name = f.pipe$name)
+
 ## get the pipeline from your project not public one
 f.pipe <- p$pipeline(name = "FastQC")
+
 ## check the inputs needed for running tasks
 f.pipe$details()
+
 ## Ready to run a task? go
-f.task <- p$task_run(name = "my task",
-                      description = "A text description",
-                      pipeline_id = f.pipe$id,
-                      inputs = list(
-                          "177252" = list(f.file$id)
-                          ))
+f.task <- p$task_run(
+  name = "my task",
+  description = "A text description",
+  pipeline_id = f.pipe$id,
+  inputs = list("177252" = list(f.file$id)))
 f.task$run()
+
 ## or you can just run with Task constructor
-f.task <- Task(auth = Auth(token),
-               name = "my task",
-               description = "A text description",
-               pipeline_id = f.pipe$id,
-               project_id = p$id,
-               inputs = list(
-                   "177252" = list(f.file$id)
-                   ))
+f.task <- Task(
+  auth = Auth(token),
+  name = "my task",
+  description = "A text description",
+  pipeline_id = f.pipe$id,
+  project_id = p$id,
+  inputs = list("177252" = list(f.file$id)))
+
 ## Monitor you task
 f.task$monitor(30)
 

@@ -118,9 +118,10 @@ in `project_new()` to set the project description.
 billing_group_id = billing(token)[["items"]][[1]][["id"]]
 
 # Create new project
-sbgr_project = project_new(token, name = "sbgr tutorial",
-                           description = "sbgr tutorial project",
-                           billing_group_id = billing_group_id)
+sbgr_project = project_new(
+  token, name = "sbgr tutorial",
+  description = "sbgr tutorial project",
+  billing_group_id = billing_group_id)
 
 # The list sbgr_project now contains the ID of the new project,
 # which we will use in the subsequent calls
@@ -193,11 +194,13 @@ Once we have prepared the uploader and the file, we can use the function
 by specifying the parameters in the function:
 
 ```{r misc_upload_cli, eval=FALSE}
-misc_get_uploader('~/')  # download the SBG CLI uploader to home directory
+# download the SBG CLI uploader to home directory
+misc_get_uploader('~/')
 
-file_id = misc_upload_cli(token, project_id = sbgr_project_id,
-                          file = "sample1.fastq", uploader = '~/sbg-uploader/')
 # suppose we have extracted sample1.fastq into current R working directory
+file_id = misc_upload_cli(
+  token, project_id = sbgr_project_id,
+  file = "sample1.fastq", uploader = '~/sbg-uploader/')
 ```
 
 After successful upload, the function will return the file's ID number:
@@ -247,8 +250,9 @@ and repeat the steps shown below.
 
 ```{r upload, eval=FALSE}
 # initialize the upload of the file sample1.fastq
-init = upload_init(token, project_id = sbgr_project_id,
-                   name = "sample1.fastq", size = file.size("sample1.fastq"))
+init = upload_init(
+  token, project_id = sbgr_project_id,
+  name = "sample1.fastq", size = file.size("sample1.fastq"))
 
 upload_id = init[["upload_id"]]
 partinfo = upload_info_part(token, upload_id = upload_id, part_number = 1)
@@ -322,12 +326,13 @@ we can easily set the file metadata by specifying certain parameters
 in `file_meta_update()`. For example:
 
 ```{r update_meta, eval=FALSE}
-file_meta_update(token, project_id = sbgr_project_id,
-                 file_id    = file_id,
-                 file_type  = "fastq", seq_tech = "Illumina",
-                 qual_scale = "illumina18",
-                 sample     = "example_human_Illumina",
-                 library    = "Test", paired_end = "1")
+file_meta_update(
+  token, project_id = sbgr_project_id,
+  file_id    = file_id,
+  file_type  = "fastq", seq_tech = "Illumina",
+  qual_scale = "illumina18",
+  sample     = "example_human_Illumina",
+  library    = "Test", paired_end = "1")
 ```
 
 ```
@@ -430,9 +435,9 @@ using the function `pipeline_add()`:
 
 ```{r pipeline_add, eval=FALSE}
 # Get the FastQC pipeline ID number in pipeline_mat
-pipeline_add(token, project_id_to = sbgr_project_id,
-             pipeline_id =
-               pipeline_mat[which(pipeline_mat[, 2] == "FastQC Analysis"), 1])
+pipeline_add(
+  token, project_id_to = sbgr_project_id,
+  pipeline_id = pipeline_mat[which(pipeline_mat[, 2] == "FastQC Analysis"), 1])
 ```
 
 This call returns the details of the copied pipeline.
@@ -495,8 +500,8 @@ of its _input nodes_. We can list the full details of our chosen pipeline
 inside the project using the function `pipeline_details()`:
 
 ```{r pipeline_details, eval=FALSE}
-fastqc_details = pipeline_details(token, project_id = sbgr_project_id,
-                 pipeline_id = pipeline_id)
+fastqc_details = pipeline_details(
+  token, project_id = sbgr_project_id, pipeline_id = pipeline_id)
 print(fastqc_details)
 ```
 
@@ -630,8 +635,7 @@ task = list(
   "name" = "FastQC with sbgr",
   "description" = "FastQC task with sbgr",
   "pipeline_id" = pipeline_id,
-  "inputs" = inputs
-  )
+  "inputs" = inputs)
 
 # add and run the task
 fastqc_task = task_run(token, project_id = sbgr_project_id, task_details = task)
@@ -774,10 +778,12 @@ We use the function `file_download_url()` to return the download URLs of
 the output file (for example, the first output file):
 
 ```{r download, eval=FALSE}
-report_url = file_download_url(token, project_id = sbgr_project_id,
-                               file_id = task_running[["outputs"]][[1]][[1]])
-download.file(url = report_url[["url"]], destfile = "fastqc_report.zip",
-              method = "wget")  # download the output archive using wget
+report_url = file_download_url(
+  token, project_id = sbgr_project_id,
+  file_id = task_running[["outputs"]][[1]][[1]])
+# download the output archive using wget
+download.file(
+  url = report_url[["url"]], destfile = "fastqc_report.zip", method = "wget")
 untar("fastqc_report.zip")  # extract the zipped files
 browseURL("sample1_fastqc/fastqc_report.html")  # open html report in browser
 ```
