@@ -764,7 +764,7 @@ Project <- setRefClass(
 
         file_delete = function(name = NULL, file_id = NULL, exact = TRUE) {
             f <- file(name, file_id, exact = exact)
-            ## exact = FALSE is very dangerous operation
+            ## exact = FALSE is a very dangerous operation
             sapply(f$id, function(fid){
                 sbgr::file_delete(auth$auth_token, id, fid, base_url = auth$url)
             })
