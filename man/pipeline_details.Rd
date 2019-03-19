@@ -4,8 +4,8 @@
 \alias{pipeline_details}
 \title{Returns the details of a pipeline for a project}
 \usage{
-pipeline_details(auth_token = NULL, project_id = NULL, pipeline_id = NULL,
-  ...)
+pipeline_details(auth_token = NULL, project_id = NULL,
+  pipeline_id = NULL, ...)
 }
 \arguments{
 \item{auth_token}{auth token}

@@ -4,7 +4,8 @@
 \alias{file_delete}
 \title{Removes a file from a project}
 \usage{
-file_delete(auth_token = NULL, project_id = NULL, file_id = NULL, ...)
+file_delete(auth_token = NULL, project_id = NULL, file_id = NULL,
+  ...)
 }
 \arguments{
 \item{auth_token}{auth token}

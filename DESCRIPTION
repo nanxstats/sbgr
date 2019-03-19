@@ -10,8 +10,8 @@ Authors@R: c(
 Maintainer: Nan Xiao <nan.xiao@sevenbridges.com>
 Description: R client for Seven Bridges Genomics API (v1).
 License: Apache License 2.0 | file LICENSE
-URL: https://www.sevenbridges.com, https://github.com/road2stat/sbgr
-BugReports: https://github.com/road2stat/sbgr/issues
+URL: https://www.sevenbridges.com, https://github.com/nanxstats/sbgr
+BugReports: https://github.com/nanxstats/sbgr/issues
 biocViews: Software, DataImport, ThirdPartyClient
 VignetteBuilder: knitr
 Depends:
@@ -28,4 +28,4 @@ Suggests:
     testthat
 NeedsCompilation: no
 Encoding: UTF-8
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.1

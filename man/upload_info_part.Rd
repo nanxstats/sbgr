@@ -4,8 +4,8 @@
 \alias{upload_info_part}
 \title{Returns AWS S3 signed URL for a part of the file upload}
 \usage{
-upload_info_part(auth_token = NULL, upload_id = NULL, part_number = NULL,
-  ...)
+upload_info_part(auth_token = NULL, upload_id = NULL,
+  part_number = NULL, ...)
 }
 \arguments{
 \item{auth_token}{auth token}

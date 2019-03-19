@@ -4,8 +4,9 @@
 \alias{project_member_add}
 \title{Add a user to the project with appropriate permissions}
 \usage{
-project_member_add(auth_token = NULL, project_id = NULL, username = NULL,
-  copy = FALSE, write = FALSE, execute = FALSE, admin = FALSE, ...)
+project_member_add(auth_token = NULL, project_id = NULL,
+  username = NULL, copy = FALSE, write = FALSE, execute = FALSE,
+  admin = FALSE, ...)
 }
 \arguments{
 \item{auth_token}{auth token}

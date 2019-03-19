@@ -4,8 +4,8 @@
 \alias{sbgapi}
 \title{wrapper of http logic for SBG API}
 \usage{
-sbgapi(auth_token = NULL, version = "1.1", path, method = c("GET", "POST",
-  "PUT", "DELETE"), query = NULL, body = list(),
+sbgapi(auth_token = NULL, version = "1.1", path, method = c("GET",
+  "POST", "PUT", "DELETE"), query = NULL, body = list(),
   base_url = paste0("https://api.sbgenomics.com/", version, "/"))
 }
 \arguments{
