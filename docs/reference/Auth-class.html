@@ -8,21 +8,29 @@
 
 <title>Class Auth — Auth-class • sbgr</title>
 
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -32,10 +40,10 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Class Auth — Auth-class" />
 
+<meta property="og:title" content="Class Auth — Auth-class" />
 <meta property="og:description" content="Auth token object" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -49,9 +57,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -73,7 +82,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -99,11 +108,10 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/nanxstats/sbgr">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/nanxstats/sbgr/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -114,6 +122,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -125,12 +134,10 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Auth token object</p>
-    
     </div>
 
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -153,106 +160,98 @@ will use <code>api</code> parameter to switch to the right one.</p></td>
       <td><p>[character] default: 1.1 version used for api.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Every object could be requested from this Auth object and any action
 could start from this object using cascading style. Please check vignette
 'easy-api' for more information.</p>
-    
     <h2 class="hasAnchor" id="fields"><a class="anchor" href="#fields"></a>Fields</h2>
 
     
-    <dl class='dl-horizontal'>
+
+<dl>
 <dt><code>auth_token</code></dt><dd><p>[character] your auth token.</p></dd>
-    <dt><code>url</code></dt><dd><p>[character] basic url used for API, by default
+
+<dt><code>url</code></dt><dd><p>[character] basic url used for API, by default
 it's <a href='https://api.sbgenomics.com/1.1/'>https://api.sbgenomics.com/1.1/</a></p></dd>
+
 </dl>
-    
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
-    <dl class='dl-horizontal'>
-<dt><code>project(name = NULL, id = NULL, index = NULL, ignore.case = TRUE,
-  exact = TRUE)</code></dt><dd><p>find project</p></dd>
+
+<dl>
+<dt><code>project(name = NULL, id = NULL, index = NULL, ignore.case = TRUE, exact = TRUE)</code></dt><dd><p>find project</p></dd>
+
 </dl>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='co'>## replace it with real token</span>
-<span class='no'>token</span> <span class='kw'>&lt;-</span> <span class='st'>"aef7e9e3f6c54fb1b338ac4ecddf1a56"</span>
-<span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fu'>Auth</span>(<span class='no'>token</span>)
-<span class='co'># }</span><span class='co'># NOT RUN {</span>
+    <pre class="examples"><div class='input'><span class='co'>## replace it with real token</span>
+<span class='va'>token</span> <span class='op'>&lt;-</span> <span class='st'>"aef7e9e3f6c54fb1b338ac4ecddf1a56"</span>
+<span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fu'>Auth</span><span class='op'>(</span><span class='va'>token</span><span class='op'>)</span>
+<span class='co'># \donttest{</span>
 <span class='co'>## get billing info</span>
-<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='no'>a</span>$<span class='fu'><a href='billing.html'>billing</a></span>()
-<span class='co'>## create project</span>
-<span class='no'>a</span>$<span class='fu'><a href='project_new.html'>project_new</a></span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"API"</span>, <span class='kw'>description</span> <span class='kw'>=</span> <span class='st'>"API tutorial"</span>,
-              <span class='kw'>billing_group_id</span> <span class='kw'>=</span> <span class='no'>b</span><span class='kw'>[[</span><span class='fl'>1</span>]]$<span class='no'>id</span>)
-<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='no'>a</span>$<span class='fu'>project</span>(<span class='st'>"API"</span>)
-<span class='co'>## get data</span>
-<span class='no'>fl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"sample1.fastq"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"sbgr"</span>)
+<span class='va'>b</span> <span class='op'>&lt;-</span> <span class='va'>a</span><span class='op'>$</span><span class='fu'>billing</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error: HTTP Status 404: /1.1/billing not found</span></div><div class='input'><span class='co'>## create project</span>
+<span class='va'>a</span><span class='op'>$</span><span class='fu'>project_new</span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"API"</span>, description <span class='op'>=</span> <span class='st'>"API tutorial"</span>,
+              billing_group_id <span class='op'>=</span> <span class='va'>b</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>$</span><span class='va'>id</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in sbgr::project_new(auth_token, name = name, base_url = url, description = description,     billing_group_id = billing_group_id): object 'b' not found</span></div><div class='input'><span class='va'>p</span> <span class='op'>&lt;-</span> <span class='va'>a</span><span class='op'>$</span><span class='fu'>project</span><span class='op'>(</span><span class='st'>"API"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error: HTTP Status 404: /1.1/project not found</span></div><div class='input'><span class='co'>## get data</span>
+<span class='va'>fl</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"sample1.fastq"</span>, package <span class='op'>=</span> <span class='st'>"sbgr"</span><span class='op'>)</span>
 <span class='co'>## create meta data</span>
-<span class='no'>fl.meta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>file_type</span> <span class='kw'>=</span> <span class='st'>"fastq"</span>,
-                <span class='kw'>seq_tech</span> <span class='kw'>=</span> <span class='st'>"Illumina"</span>,
-                <span class='kw'>sample</span> <span class='kw'>=</span> <span class='st'>"sample1"</span>,
-                <span class='kw'>author</span> <span class='kw'>=</span> <span class='st'>"tengfei"</span>)
+<span class='va'>fl.meta</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>file_type <span class='op'>=</span> <span class='st'>"fastq"</span>,
+                seq_tech <span class='op'>=</span> <span class='st'>"Illumina"</span>,
+                sample <span class='op'>=</span> <span class='st'>"sample1"</span>,
+                author <span class='op'>=</span> <span class='st'>"tengfei"</span><span class='op'>)</span>
 <span class='co'>## upload data with metadata</span>
-<span class='no'>p</span>$<span class='fu'>upload</span>(<span class='no'>fl</span>, <span class='kw'>metadata</span> <span class='kw'>=</span> <span class='no'>fl.meta</span>)
-<span class='co'>## check uploading success</span>
-<span class='no'>f.file</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/connections'>file</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/basename'>basename</a></span>(<span class='no'>fl</span>))
-<span class='co'>## get the pipeline from public repos</span>
-<span class='no'>f.pipe</span> <span class='kw'>&lt;-</span> <span class='no'>a</span>$<span class='fu'>pipeline</span>(<span class='kw'>pipeline_name</span> <span class='kw'>=</span> <span class='st'>"FastQC"</span>)
-<span class='co'>## copy the pipeline to your project</span>
-<span class='no'>p</span>$<span class='fu'><a href='pipeline_add.html'>pipeline_add</a></span>(<span class='kw'>pipeline_name</span> <span class='kw'>=</span> <span class='no'>f.pipe</span>$<span class='no'>name</span>)
-<span class='co'>## get the pipeline from your project not public one</span>
-<span class='no'>f.pipe</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>pipeline</span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"FastQC"</span>)
-<span class='co'>## check the inputs needed for running tasks</span>
-<span class='no'>f.pipe</span>$<span class='fu'>details</span>()
-<span class='co'>## Ready to run a task? go</span>
-<span class='no'>f.task</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'><a href='task_run.html'>task_run</a></span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"my task"</span>,
-                      <span class='kw'>description</span> <span class='kw'>=</span> <span class='st'>"A text description"</span>,
-                      <span class='kw'>pipeline_id</span> <span class='kw'>=</span> <span class='no'>f.pipe</span>$<span class='no'>id</span>,
-                      <span class='kw'>inputs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(
-                          <span class='st'>"177252"</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>f.file</span>$<span class='no'>id</span>)
-                          ))
-<span class='no'>f.task</span>$<span class='fu'>run</span>()
-<span class='co'>## or you can just run with Task constructor</span>
-<span class='no'>f.task</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Task-class.html'>Task</a></span>(<span class='kw'>auth</span> <span class='kw'>=</span> <span class='fu'>Auth</span>(<span class='no'>token</span>),
-               <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"my task"</span>,
-               <span class='kw'>description</span> <span class='kw'>=</span> <span class='st'>"A text description"</span>,
-               <span class='kw'>pipeline_id</span> <span class='kw'>=</span> <span class='no'>f.pipe</span>$<span class='no'>id</span>,
-               <span class='kw'>project_id</span> <span class='kw'>=</span> <span class='no'>p</span>$<span class='no'>id</span>,
-               <span class='kw'>inputs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(
-                   <span class='st'>"177252"</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>f.file</span>$<span class='no'>id</span>)
-                   ))
-<span class='co'>## Monitor you task</span>
-<span class='no'>f.task</span>$<span class='fu'>monitor</span>(<span class='fl'>30</span>)
-
+<span class='va'>p</span><span class='op'>$</span><span class='fu'>upload</span><span class='op'>(</span><span class='va'>fl</span>, metadata <span class='op'>=</span> <span class='va'>fl.meta</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'p' not found</span></div><div class='input'><span class='co'>## check uploading success</span>
+<span class='va'>f.file</span> <span class='op'>&lt;-</span> <span class='va'>p</span><span class='op'>$</span><span class='fu'>file</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/basename.html'>basename</a></span><span class='op'>(</span><span class='va'>fl</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'p' not found</span></div><div class='input'><span class='co'>## get the pipeline from public repos</span>
+<span class='va'>f.pipe</span> <span class='op'>&lt;-</span> <span class='va'>a</span><span class='op'>$</span><span class='fu'>pipeline</span><span class='op'>(</span>pipeline_name <span class='op'>=</span> <span class='st'>"FastQC"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error: HTTP Status 404: /1.1/pipeline/public not found</span></div><div class='input'><span class='co'>## copy the pipeline to your project</span>
+<span class='va'>p</span><span class='op'>$</span><span class='fu'>pipeline_add</span><span class='op'>(</span>pipeline_name <span class='op'>=</span> <span class='va'>f.pipe</span><span class='op'>$</span><span class='va'>name</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'p' not found</span></div><div class='input'><span class='co'>## get the pipeline from your project not public one</span>
+<span class='va'>f.pipe</span> <span class='op'>&lt;-</span> <span class='va'>p</span><span class='op'>$</span><span class='fu'>pipeline</span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"FastQC"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'p' not found</span></div><div class='input'><span class='co'>## check the inputs needed for running tasks</span>
+<span class='va'>f.pipe</span><span class='op'>$</span><span class='fu'>details</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'f.pipe' not found</span></div><div class='input'><span class='co'>## Ready to run a task? go</span>
+<span class='va'>f.task</span> <span class='op'>&lt;-</span> <span class='va'>p</span><span class='op'>$</span><span class='fu'>task_run</span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"my task"</span>,
+                      description <span class='op'>=</span> <span class='st'>"A text description"</span>,
+                      pipeline_id <span class='op'>=</span> <span class='va'>f.pipe</span><span class='op'>$</span><span class='va'>id</span>,
+                      inputs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+                          <span class='st'>"177252"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>f.file</span><span class='op'>$</span><span class='va'>id</span><span class='op'>)</span>
+                          <span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'p' not found</span></div><div class='input'><span class='va'>f.task</span><span class='op'>$</span><span class='fu'>run</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'f.task' not found</span></div><div class='input'><span class='co'>## or you can just run with Task constructor</span>
+<span class='va'>f.task</span> <span class='op'>&lt;-</span> <span class='fu'><a href='Task-class.html'>Task</a></span><span class='op'>(</span>auth <span class='op'>=</span> <span class='fu'>Auth</span><span class='op'>(</span><span class='va'>token</span><span class='op'>)</span>,
+               name <span class='op'>=</span> <span class='st'>"my task"</span>,
+               description <span class='op'>=</span> <span class='st'>"A text description"</span>,
+               pipeline_id <span class='op'>=</span> <span class='va'>f.pipe</span><span class='op'>$</span><span class='va'>id</span>,
+               project_id <span class='op'>=</span> <span class='va'>p</span><span class='op'>$</span><span class='va'>id</span>,
+               inputs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+                   <span class='st'>"177252"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>f.file</span><span class='op'>$</span><span class='va'>id</span><span class='op'>)</span>
+                   <span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in initRefFields(.self, .refClassDef, as.environment(.self), list(...)): object 'f.pipe' not found</span></div><div class='input'><span class='co'>## Monitor you task</span>
+<span class='va'>f.task</span><span class='op'>$</span><span class='fu'>monitor</span><span class='op'>(</span><span class='fl'>30</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'f.task' not found</span></div><div class='input'>
 <span class='co'>## download a task output files</span>
-<span class='no'>f.task</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>task</span>(<span class='st'>"my task"</span>)
-<span class='no'>f.task</span>$<span class='fu'>download</span>(<span class='st'>"~/Desktop/"</span>)
-
+<span class='va'>f.task</span> <span class='op'>&lt;-</span> <span class='va'>p</span><span class='op'>$</span><span class='fu'>task</span><span class='op'>(</span><span class='st'>"my task"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'p' not found</span></div><div class='input'><span class='va'>f.task</span><span class='op'>$</span><span class='fu'>download</span><span class='op'>(</span><span class='st'>"~/Desktop/"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'f.task' not found</span></div><div class='input'>
 <span class='co'>## Abort the task</span>
-<span class='no'>f.task</span>$<span class='fu'>abort</span>()
-<span class='co'># }</span></pre>
+<span class='va'>f.task</span><span class='op'>$</span><span class='fu'>abort</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'f.task' not found</span></div><div class='input'><span class='co'># }</span>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#fields">Fields</a></li>
-
-      <li><a href="#methods">Methods</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -260,13 +259,16 @@ it's <a href='https://api.sbgenomics.com/1.1/'>https://api.sbgenomics.com/1.1/</
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

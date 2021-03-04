@@ -6,19 +6,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Easy API: A User-Friendly Cascading API • sbgr</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Easy API: A User-Friendly Cascading API">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="sbgr">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +40,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -67,8 +68,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/nanxstats/sbgr">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/nanxstats/sbgr/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -81,10 +82,11 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+
+      </header><script src="easy-api_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Easy API: A User-Friendly Cascading API</h1>
+      <h1 data-toc-skip>Easy API: A User-Friendly Cascading API</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/nanxstats/sbgr/blob/master/vignettes/easy-api.Rmd"><code>vignettes/easy-api.Rmd</code></a></small>
@@ -101,10 +103,11 @@
 <ul>
 <li>Simpler cascading style from a <em>Auth</em> object or its children, for example</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co">## download a file</span></a>
-<a class="sourceLine" id="cb1-2" title="2">a<span class="op">$</span><span class="kw">project</span>(<span class="st">"wgs"</span>)<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="st">"17.vcf"</span>)<span class="op">$</span><span class="kw">download</span>()</a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co">## upload a file</span></a>
-<a class="sourceLine" id="cb1-4" title="4">a<span class="op">$</span><span class="kw">project</span>(<span class="st">"wgs"</span>)<span class="op">$</span><span class="kw">upload</span>(<span class="st">"sample.tgz"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## download a file</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="st">"wgs"</span><span class="op">)</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span><span class="st">"17.vcf"</span><span class="op">)</span><span class="op">$</span><span class="fu">download</span><span class="op">(</span><span class="op">)</span>
+<span class="co">## upload a file</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="st">"wgs"</span><span class="op">)</span><span class="op">$</span><span class="fu">upload</span><span class="op">(</span><span class="st">"sample.tgz"</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>Exact matching or fuzz matching by names and id.</li>
 <li>Actions for each different objects</li>
@@ -130,28 +133,30 @@
 <p>This cheat sheet provide main API designed for end users, please note “single” is not real project name, just means the cascading method expecting a single returned object not a list, so you name better has a single hit or you pick the one you want from the list. Remember the logic structure and relationship of those concept will help you remember the API easily. For example, a project has members so of course you can run member() method on project object.</p>
 <p>For a searching function that need name or id, when both are empty, they will return every object (file, project, pipeline, task, member) in a list. These function usually has optional parameter called <code>ignore.case</code> and <code>exact</code> used for matching, when <code>exact = FALSE</code> you can use pattern to grep objects.</p>
 <p>The cheat sheet only show some most used arguments, please check their help function to read more details.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/Auth-class.html">Auth</a></span>()</a>
-<a class="sourceLine" id="cb2-2" title="2">a<span class="op">$</span><span class="kw"><a href="../reference/billing.html">billing</a></span>()</a>
-<a class="sourceLine" id="cb2-3" title="3">a<span class="op">$</span><span class="kw"><a href="../reference/project_new.html">project_new</a></span>(<span class="dt">name =</span> , <span class="dt">description =</span> , <span class="dt">billing_group_id =</span> )</a>
-<a class="sourceLine" id="cb2-4" title="4">a<span class="op">$</span><span class="kw">project</span>(<span class="dt">repos =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"public"</span>, <span class="st">"my"</span>, <span class="st">"project"</span>), <span class="dt">project_name =</span> , <span class="dt">project_id =</span> )</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="co">## to save some typing</span></a>
-<a class="sourceLine" id="cb2-6" title="6">p &lt;-<span class="st"> </span>a<span class="op">$</span><span class="kw">project</span>(<span class="st">"single"</span>)</a>
-<a class="sourceLine" id="cb2-7" title="7">p<span class="op">$</span><span class="kw">delete</span>()</a>
-<a class="sourceLine" id="cb2-8" title="8">p<span class="op">$</span><span class="kw">member</span>(<span class="dt">name =</span> , <span class="dt">id =</span> )</a>
-<a class="sourceLine" id="cb2-9" title="9">p<span class="op">$</span><span class="kw">member_add</span>()</a>
-<a class="sourceLine" id="cb2-10" title="10">p<span class="op">$</span><span class="kw">member_update</span>()</a>
-<a class="sourceLine" id="cb2-11" title="11">p<span class="op">$</span><span class="kw">member_delete</span>()</a>
-<a class="sourceLine" id="cb2-12" title="12">p<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="dt">name =</span> , <span class="dt">id =</span> )</a>
-<a class="sourceLine" id="cb2-13" title="13">p<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="st">"single"</span>)<span class="op">$</span><span class="kw">download</span>()</a>
-<a class="sourceLine" id="cb2-14" title="14">p<span class="op">$</span><span class="kw">upload</span>(<span class="dt">file =</span> , <span class="dt">metadata =</span> )</a>
-<a class="sourceLine" id="cb2-15" title="15">p<span class="op">$</span><span class="kw">pipeline</span>(<span class="dt">name =</span> , <span class="dt">id =</span> )</a>
-<a class="sourceLine" id="cb2-16" title="16">p<span class="op">$</span><span class="kw"><a href="../reference/pipeline_add.html">pipeline_add</a></span>()</a>
-<a class="sourceLine" id="cb2-17" title="17">p<span class="op">$</span><span class="kw">task</span>(<span class="dt">name =</span> , <span class="dt">id =</span> )</a>
-<a class="sourceLine" id="cb2-18" title="18">p<span class="op">$</span><span class="kw"><a href="../reference/task_run.html">task_run</a></span>()</a>
-<a class="sourceLine" id="cb2-19" title="19">p<span class="op">$</span><span class="kw">task</span>(<span class="st">"single"</span>)<span class="op">$</span><span class="kw">abort</span>()</a>
-<a class="sourceLine" id="cb2-20" title="20">p<span class="op">$</span><span class="kw">task</span>(<span class="st">"single"</span>)<span class="op">$</span><span class="kw">monitor</span>(<span class="dt">time =</span> )</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Auth-class.html">Auth</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">billing</span><span class="op">(</span><span class="op">)</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">project_new</span><span class="op">(</span>name <span class="op">=</span> , description <span class="op">=</span> , billing_group_id <span class="op">=</span> <span class="op">)</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"public"</span>, <span class="st">"my"</span>, <span class="st">"project"</span><span class="op">)</span>, project_name <span class="op">=</span> , project_id <span class="op">=</span> <span class="op">)</span>
+<span class="co">## to save some typing</span>
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="st">"single"</span><span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">delete</span><span class="op">(</span><span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">member</span><span class="op">(</span>name <span class="op">=</span> , id <span class="op">=</span> <span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">member_add</span><span class="op">(</span><span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">member_update</span><span class="op">(</span><span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">member_delete</span><span class="op">(</span><span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span>name <span class="op">=</span> , id <span class="op">=</span> <span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span><span class="st">"single"</span><span class="op">)</span><span class="op">$</span><span class="fu">download</span><span class="op">(</span><span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">upload</span><span class="op">(</span>file <span class="op">=</span> , metadata <span class="op">=</span> <span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span>name <span class="op">=</span> , id <span class="op">=</span> <span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">pipeline_add</span><span class="op">(</span><span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">task</span><span class="op">(</span>name <span class="op">=</span> , id <span class="op">=</span> <span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">task_run</span><span class="op">(</span><span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">task</span><span class="op">(</span><span class="st">"single"</span><span class="op">)</span><span class="op">$</span><span class="fu">abort</span><span class="op">(</span><span class="op">)</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">task</span><span class="op">(</span><span class="st">"single"</span><span class="op">)</span><span class="op">$</span><span class="fu">monitor</span><span class="op">(</span>time <span class="op">=</span> <span class="op">)</span></code></pre></div>
 <p>So you can do a cascading like this, it reads like “I want download the file sample1.tgz in project API under account a”</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">a<span class="op">$</span><span class="kw">project</span>(<span class="st">"API"</span>)<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="st">"sample1.tgz"</span>)<span class="op">$</span><span class="kw">download</span>(<span class="st">"~/Desktop/"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="st">"API"</span><span class="op">)</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span><span class="st">"sample1.tgz"</span><span class="op">)</span><span class="op">$</span><span class="fu">download</span><span class="op">(</span><span class="st">"~/Desktop/"</span><span class="op">)</span></code></pre></div>
 <p>Please play the main function yourself, we are not covering all the function in this tutorial. Also some users may notice the object actually has lower level API binding as well for example, you can call <code>a$pipeline_list_project()</code> but those are used internally not supposed to be used by end users. user can just call <code>a$prject("public")</code></p>
 </div>
 </div>
@@ -165,9 +170,10 @@
 <p>First thing you do is to get your authentication token following this <a href="https://docs.sbgenomics.com/display/sbg/Managing+Account+Settings#ManagingAccountSettings-GenerateanAuthenticationToken">tutorial</a>, then create a <em>Auth</em> object which will be our master object for request and actions.</p>
 <p>By default we are using SBG US platform API URL “<a href="https://api.sbgenomics.com/1.1/" class="uri">https://api.sbgenomics.com/1.1/</a>”, you can also pass another URL, for example, NCI cancer cloud API URL.</p>
 <p>Now let’s use some fake auth token and load the library.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(sbgr)</a>
-<a class="sourceLine" id="cb4-2" title="2">a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/Auth-class.html">Auth</a></span>(<span class="st">"aef7e9e3f6c54fb1b338ac4ecddf1a56"</span>)</a>
-<a class="sourceLine" id="cb4-3" title="3">a</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.sevenbridges.com">sbgr</a></span><span class="op">)</span>
+<span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Auth-class.html">Auth</a></span><span class="op">(</span><span class="st">"aef7e9e3f6c54fb1b338ac4ecddf1a56"</span><span class="op">)</span>
+<span class="va">a</span></code></pre></div>
 <pre><code>## == Auth ==</code></pre>
 <pre><code>## auth_token : aef7e9e3f6c54fb1b338ac4ecddf1a56</code></pre>
 <pre><code>## url : https://api.sbgenomics.com/1.1/</code></pre>
@@ -177,40 +183,48 @@
 <a href="#billing-group" class="anchor"></a>Billing group</h2>
 <p>Billing group specify how your computation charges, when you first registered, you should have some free credit, with billing group called something like “Free Account”. Or maybe your company/organization purchased a license, you should have other billing group attached as well</p>
 <p>To show how many billing group you belong too, just call <em>billing</em> function</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">b &lt;-<span class="st"> </span>a<span class="op">$</span><span class="kw"><a href="../reference/billing.html">billing</a></span>()</a>
-<a class="sourceLine" id="cb8-2" title="2">b</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">b</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">$</span><span class="fu">billing</span><span class="op">(</span><span class="op">)</span>
+<span class="va">b</span></code></pre></div>
 </div>
 <div id="create-a-project" class="section level2">
 <h2 class="hasAnchor">
 <a href="#create-a-project" class="anchor"></a>Create a project</h2>
 <p>Let’s first list all projects you have under your account</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">a<span class="op">$</span><span class="kw">project</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>You can search it by <code>name</code> or by <code>id</code>, <strong>note</strong>: <code>id</code> is unique, but <code>name</code> may have multiple hits, by default, we are using exact matching, only return it when it has single hits. There are two additional parameters to control it <code>exact</code> and <code>ignore.case</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">a<span class="op">$</span><span class="kw">project</span>(<span class="dt">name =</span> <span class="st">"my first"</span>) <span class="co"># return one matching</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"my first"</span><span class="op">)</span> <span class="co"># return one matching</span></code></pre></div>
 <p>Maybe you want to create another project called “API” just for testing, but make sure you pass the required field <code>name</code>, <code>description</code> and <code>billing_group_id</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">a<span class="op">$</span><span class="kw"><a href="../reference/project_new.html">project_new</a></span>(</a>
-<a class="sourceLine" id="cb11-2" title="2">  <span class="dt">name =</span> <span class="st">"API"</span>, <span class="dt">description =</span> <span class="st">"API tutorial"</span>,</a>
-<a class="sourceLine" id="cb11-3" title="3">  <span class="dt">billing_group_id =</span> b[[<span class="dv">1</span>]]<span class="op">$</span>id)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span><span class="op">$</span><span class="fu">project_new</span><span class="op">(</span>
+  name <span class="op">=</span> <span class="st">"API"</span>, description <span class="op">=</span> <span class="st">"API tutorial"</span>,
+  billing_group_id <span class="op">=</span> <span class="va">b</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="upload-file-and-set-metadata" class="section level2">
 <h2 class="hasAnchor">
 <a href="#upload-file-and-set-metadata" class="anchor"></a>Upload file and set metadata</h2>
 <p>To save your typing/lines for cascading style, I want to save the project I am gonna use for this tutorial to a Project object first.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co">## get the project we just created</span></a>
-<a class="sourceLine" id="cb12-2" title="2">p &lt;-<span class="st"> </span>a<span class="op">$</span><span class="kw">project</span>(<span class="st">"API"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## get the project we just created</span>
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="st">"API"</span><span class="op">)</span></code></pre></div>
 <p>To list all files in that project and search for a file, it’s also easy</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">a<span class="op">$</span><span class="kw">project</span>(<span class="st">"my first"</span>)<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>()</a>
-<a class="sourceLine" id="cb13-2" title="2">a<span class="op">$</span><span class="kw">project</span>(<span class="st">"my first"</span>)<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="st">"illumina"</span>, <span class="dt">exact =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="st">"my first"</span><span class="op">)</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span><span class="op">)</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="st">"my first"</span><span class="op">)</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span><span class="st">"illumina"</span>, exact <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <p>Get the file we are going to upload and get the metadata ready as well.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">fl &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"sample1.fastq"</span>, <span class="dt">package =</span> <span class="st">"sbgr"</span>)</a>
-<a class="sourceLine" id="cb14-2" title="2"><span class="co">## create meta data</span></a>
-<a class="sourceLine" id="cb14-3" title="3">fl.meta &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(</a>
-<a class="sourceLine" id="cb14-4" title="4">  <span class="dt">file_type =</span> <span class="st">"fastq"</span>,</a>
-<a class="sourceLine" id="cb14-5" title="5">  <span class="dt">seq_tech =</span> <span class="st">"Illumina"</span>,</a>
-<a class="sourceLine" id="cb14-6" title="6">  <span class="dt">sample =</span> <span class="st">"sample1"</span>,</a>
-<a class="sourceLine" id="cb14-7" title="7">  <span class="dt">author =</span> <span class="st">"tengfei"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"sample1.fastq"</span>, package <span class="op">=</span> <span class="st">"sbgr"</span><span class="op">)</span>
+<span class="co">## create meta data</span>
+<span class="va">fl.meta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+  file_type <span class="op">=</span> <span class="st">"fastq"</span>,
+  seq_tech <span class="op">=</span> <span class="st">"Illumina"</span>,
+  sample <span class="op">=</span> <span class="st">"sample1"</span>,
+  author <span class="op">=</span> <span class="st">"tengfei"</span><span class="op">)</span></code></pre></div>
 <p>To upload the file to the project, just call <code>upload</code> method from project object, it will initialize the multiparts automatically, checking each part and complete the call when finished. You will see the progress bar.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">p<span class="op">$</span><span class="kw">upload</span>(fl, <span class="dt">metadata =</span> fl.meta)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span><span class="op">$</span><span class="fu">upload</span><span class="op">(</span><span class="va">fl</span>, metadata <span class="op">=</span> <span class="va">fl.meta</span><span class="op">)</span></code></pre></div>
 <pre><code>Initialized
 |=============================================================================| 100%
 == File ==
@@ -223,12 +237,14 @@ seq_tech : Illumina
 sample : sample1
 author: tengfei</code></pre>
 <p>To check if it’s uploaded successfully, just check the file on the server to see if it exists or not.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">p<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/basename">basename</a></span>(fl))</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="va">fl</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div id="keep-playing-with-file-metadata" class="section level3">
 <h3 class="hasAnchor">
 <a href="#keep-playing-with-file-metadata" class="anchor"></a>Keep playing with file metadata</h3>
 <p>Metadata is designed with fixed fields in the GUI with fixed enum types for some fields, like file_type, to check what’s fixed, please do</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw"><a href="../reference/Metadata.html">Metadata</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/FileTypeSingleEnum-class.html">Metadata</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## -- Metadata --</code></pre>
 <pre><code>## file_type : NA</code></pre>
 <pre><code>## qual_scale : NA</code></pre>
@@ -237,57 +253,62 @@ author: tengfei</code></pre>
 <pre><code>## library :</code></pre>
 <pre><code>## platform_unit :</code></pre>
 <pre><code>## paired_end : NA</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw"><a href="../reference/Metadata.html">Metadata</a></span>()<span class="op">$</span>file_type</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/FileTypeSingleEnum-class.html">Metadata</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">file_type</span></code></pre></div>
 <pre><code>## An object of class "FileTypeSingleEnum"
 ## [1] NA
 ## Slot "levels":
-##  [1] "text"            "binary"          "fasta"          
-##  [4] "csfasta"         "fastq"           "qual"           
-##  [7] "xsq"             "sff"             "bam"            
-## [10] "bam_index"       "illumina_export" "vcf"            
-## [13] "sam"             "bed"             "archive"        
-## [16] "juncs"           "gtf"             "gff"            
-## [19] "enlis_genome"    NA</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/levels">levels</a></span>(<span class="kw"><a href="../reference/Metadata.html">Metadata</a></span>()<span class="op">$</span>file_type)</a></code></pre></div>
-<pre><code>##  [1] "text"            "binary"          "fasta"          
-##  [4] "csfasta"         "fastq"           "qual"           
-##  [7] "xsq"             "sff"             "bam"            
-## [10] "bam_index"       "illumina_export" "vcf"            
-## [13] "sam"             "bed"             "archive"        
-## [16] "juncs"           "gtf"             "gff"            
-## [19] "enlis_genome"    NA</code></pre>
+##  [1] "text"            "binary"          "fasta"           "csfasta"        
+##  [5] "fastq"           "qual"            "xsq"             "sff"            
+##  [9] "bam"             "bam_index"       "illumina_export" "vcf"            
+## [13] "sam"             "bed"             "archive"         "juncs"          
+## [17] "gtf"             "gff"             "enlis_genome"    NA</code></pre>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="fu"><a href="../reference/FileTypeSingleEnum-class.html">Metadata</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">file_type</span><span class="op">)</span></code></pre></div>
+<pre><code>##  [1] "text"            "binary"          "fasta"           "csfasta"        
+##  [5] "fastq"           "qual"            "xsq"             "sff"            
+##  [9] "bam"             "bam_index"       "illumina_export" "vcf"            
+## [13] "sam"             "bed"             "archive"         "juncs"          
+## [17] "gtf"             "gff"             "enlis_genome"    NA</code></pre>
 <p>To add more metadata items, you can pass more named list entries, and to keep original turn on parameter <code>append</code>.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">p<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/basename">basename</a></span>(fl))<span class="op">$</span><span class="kw">set_metadata</span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">version =</span> <span class="st">"2.0"</span>), <span class="dt">append =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="va">fl</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="fu">set_metadata</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>version <span class="op">=</span> <span class="st">"2.0"</span><span class="op">)</span>, append <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Read more about metadata please visit SBG <a href="https://docs.sbgenomics.com/display/sbg/Metadata">developer hub page</a></p>
 </div>
 <div id="delete-a-file" class="section level3">
 <h3 class="hasAnchor">
 <a href="#delete-a-file" class="anchor"></a>Delete a file</h3>
 <p>To delete a file, just call <code>delete</code> method on a <em>File</em> object. for example.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">p<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/basename">basename</a></span>(fl))<span class="op">$</span><span class="kw">delete</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="va">fl</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="fu">delete</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="get-pipelines-information" class="section level2">
 <h2 class="hasAnchor">
 <a href="#get-pipelines-information" class="anchor"></a>Get pipelines information</h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">p<span class="op">$</span><span class="kw">pipeline</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>It’s a new project, there is no pipeline yet, there are several other ways to check out available pipelines for public, my pipeline and pipelines in particular project.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="co">## project pipelines</span></a>
-<a class="sourceLine" id="cb34-2" title="2">a<span class="op">$</span><span class="kw">project</span>(<span class="st">"my first"</span>)<span class="op">$</span><span class="kw">pipeline</span>()</a>
-<a class="sourceLine" id="cb34-3" title="3"><span class="co">## all public pipeline</span></a>
-<a class="sourceLine" id="cb34-4" title="4">a<span class="op">$</span><span class="kw">pipeline</span>()</a>
-<a class="sourceLine" id="cb34-5" title="5"><span class="co">## my pipeline</span></a>
-<a class="sourceLine" id="cb34-6" title="6">a<span class="op">$</span><span class="kw">pipeline</span>(<span class="st">"my"</span>)</a>
-<a class="sourceLine" id="cb34-7" title="7"><span class="co">## particular project</span></a>
-<a class="sourceLine" id="cb34-8" title="8">a<span class="op">$</span><span class="kw">pipeline</span>(<span class="dt">project_name =</span> <span class="st">"my first"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## project pipelines</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="st">"my first"</span><span class="op">)</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span><span class="op">)</span>
+<span class="co">## all public pipeline</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span><span class="op">)</span>
+<span class="co">## my pipeline</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span><span class="st">"my"</span><span class="op">)</span>
+<span class="co">## particular project</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span>project_name <span class="op">=</span> <span class="st">"my first"</span><span class="op">)</span></code></pre></div>
 <p>Let’s look for a pipeline about “FastQC”, from public repos</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">f.pipe &lt;-<span class="st"> </span>a<span class="op">$</span><span class="kw">pipeline</span>(<span class="dt">pipeline_name =</span> <span class="st">"FastQC"</span>)</a>
-<a class="sourceLine" id="cb35-2" title="2">f.pipe</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f.pipe</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span>pipeline_name <span class="op">=</span> <span class="st">"FastQC"</span><span class="op">)</span>
+<span class="va">f.pipe</span></code></pre></div>
 <p>Cool, we got a unique hit, let’s copy the FastQC pipeline to the new project</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">p<span class="op">$</span><span class="kw"><a href="../reference/pipeline_add.html">pipeline_add</a></span>(<span class="dt">pipeline_name =</span> f.pipe<span class="op">$</span>name)</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span><span class="op">$</span><span class="fu">pipeline_add</span><span class="op">(</span>pipeline_name <span class="op">=</span> <span class="va">f.pipe</span><span class="op">$</span><span class="va">name</span><span class="op">)</span></code></pre></div>
 <p>To confirm</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">f.pipe &lt;-<span class="st"> </span>p<span class="op">$</span><span class="kw">pipeline</span>(<span class="dt">name =</span> <span class="st">"FastQC"</span>)</a>
-<a class="sourceLine" id="cb37-2" title="2">f.pipe</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f.pipe</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"FastQC"</span><span class="op">)</span>
+<span class="va">f.pipe</span></code></pre></div>
 </div>
 <div id="run-a-task-with-the-pipeline" class="section level2">
 <h2 class="hasAnchor">
@@ -309,141 +330,127 @@ author: tengfei</code></pre>
 <li>
 <strong>outputs</strong>: An array of output nodes, producing files, reports, visualizations, etc.</li>
 </ul>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">f.pipe<span class="op">$</span><span class="kw">details</span>()</a>
-<a class="sourceLine" id="cb38-2" title="2">f.pipe<span class="op">$</span><span class="kw">details</span>()<span class="op">$</span>inputs</a>
-<a class="sourceLine" id="cb38-3" title="3">f.pipe<span class="op">$</span><span class="kw">details</span>()<span class="op">$</span>nodes</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f.pipe</span><span class="op">$</span><span class="fu">details</span><span class="op">(</span><span class="op">)</span>
+<span class="va">f.pipe</span><span class="op">$</span><span class="fu">details</span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">inputs</span>
+<span class="va">f.pipe</span><span class="op">$</span><span class="fu">details</span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">nodes</span></code></pre></div>
 <p>To run the pipeline, we need to provide task details, we know we want to input our upload sample file as input node here. So we need to link our file id with the input node id.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">f.task &lt;-<span class="st"> </span>p<span class="op">$</span><span class="kw"><a href="../reference/task_run.html">task_run</a></span>(</a>
-<a class="sourceLine" id="cb39-2" title="2">  <span class="dt">name =</span> <span class="st">"my task"</span>,</a>
-<a class="sourceLine" id="cb39-3" title="3">  <span class="dt">description =</span> <span class="st">"A text description"</span>,</a>
-<a class="sourceLine" id="cb39-4" title="4">  <span class="dt">pipeline_id =</span> f.pipe<span class="op">$</span>id,</a>
-<a class="sourceLine" id="cb39-5" title="5">  <span class="dt">inputs =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="st">"177252"</span> =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(f.file<span class="op">$</span>id)))</a>
-<a class="sourceLine" id="cb39-6" title="6"></a>
-<a class="sourceLine" id="cb39-7" title="7">f.task</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f.task</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">task_run</span><span class="op">(</span>
+  name <span class="op">=</span> <span class="st">"my task"</span>,
+  description <span class="op">=</span> <span class="st">"A text description"</span>,
+  pipeline_id <span class="op">=</span> <span class="va">f.pipe</span><span class="op">$</span><span class="va">id</span>,
+  inputs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"177252"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">f.file</span><span class="op">$</span><span class="va">id</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">f.task</span></code></pre></div>
 </div>
 <div id="monitor-your-task" class="section level2">
 <h2 class="hasAnchor">
 <a href="#monitor-your-task" class="anchor"></a>Monitor your task</h2>
 <p>Pass the interval time (in seconds) this will check status of a task, print finish when it’s finished.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">f.task<span class="op">$</span><span class="kw">monitor</span>(<span class="dv">30</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f.task</span><span class="op">$</span><span class="fu">monitor</span><span class="op">(</span><span class="fl">30</span><span class="op">)</span></code></pre></div>
 <p>Or simple call <code>details</code> method</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">f.task<span class="op">$</span><span class="kw">details</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f.task</span><span class="op">$</span><span class="fu">details</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="abort-a-task" class="section level2">
 <h2 class="hasAnchor">
 <a href="#abort-a-task" class="anchor"></a>Abort a task</h2>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">f.task<span class="op">$</span><span class="kw">abort</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f.task</span><span class="op">$</span><span class="fu">abort</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="download-the-results" class="section level2">
 <h2 class="hasAnchor">
 <a href="#download-the-results" class="anchor"></a>Download the results</h2>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1">f.task &lt;-<span class="st"> </span>p<span class="op">$</span><span class="kw">task</span>(<span class="dt">id =</span> <span class="st">"fed9279b-8677-4eef-9c16-9135a457f53f"</span>)</a>
-<a class="sourceLine" id="cb43-2" title="2">f.task<span class="op">$</span><span class="kw">download</span>(<span class="st">"~/Desktop/"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f.task</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">task</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"fed9279b-8677-4eef-9c16-9135a457f53f"</span><span class="op">)</span>
+<span class="va">f.task</span><span class="op">$</span><span class="fu">download</span><span class="op">(</span><span class="st">"~/Desktop/"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="wrap-the-example-up" class="section level2">
 <h2 class="hasAnchor">
 <a href="#wrap-the-example-up" class="anchor"></a>Wrap the example up</h2>
 <p>Ok, the full script is something like</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"sbgr"</span>)</a>
-<a class="sourceLine" id="cb44-2" title="2">token &lt;-<span class="st"> "aef7e9e3f6c54fb1b338ac4ecddf1a56"</span></a>
-<a class="sourceLine" id="cb44-3" title="3">a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/Auth-class.html">Auth</a></span>(token)</a>
-<a class="sourceLine" id="cb44-4" title="4"></a>
-<a class="sourceLine" id="cb44-5" title="5"><span class="co">## get billing info</span></a>
-<a class="sourceLine" id="cb44-6" title="6">b &lt;-<span class="st"> </span>a<span class="op">$</span><span class="kw"><a href="../reference/billing.html">billing</a></span>()</a>
-<a class="sourceLine" id="cb44-7" title="7"></a>
-<a class="sourceLine" id="cb44-8" title="8"><span class="co">## create project</span></a>
-<a class="sourceLine" id="cb44-9" title="9">a<span class="op">$</span><span class="kw"><a href="../reference/project_new.html">project_new</a></span>(</a>
-<a class="sourceLine" id="cb44-10" title="10">  <span class="dt">name =</span> <span class="st">"API"</span>, <span class="dt">description =</span> <span class="st">"API tutorial"</span>,</a>
-<a class="sourceLine" id="cb44-11" title="11">  <span class="dt">billing_group_id =</span> b[[<span class="dv">1</span>]]<span class="op">$</span>id)</a>
-<a class="sourceLine" id="cb44-12" title="12">p &lt;-<span class="st"> </span>a<span class="op">$</span><span class="kw">project</span>(<span class="st">"API"</span>)</a>
-<a class="sourceLine" id="cb44-13" title="13"></a>
-<a class="sourceLine" id="cb44-14" title="14"><span class="co">## get data</span></a>
-<a class="sourceLine" id="cb44-15" title="15">fl &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"sample1.fastq"</span>, <span class="dt">package =</span> <span class="st">"sbgr"</span>)</a>
-<a class="sourceLine" id="cb44-16" title="16"></a>
-<a class="sourceLine" id="cb44-17" title="17"><span class="co">## create meta data</span></a>
-<a class="sourceLine" id="cb44-18" title="18">fl.meta &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(</a>
-<a class="sourceLine" id="cb44-19" title="19">  <span class="dt">file_type =</span> <span class="st">"fastq"</span>,</a>
-<a class="sourceLine" id="cb44-20" title="20">  <span class="dt">seq_tech =</span> <span class="st">"Illumina"</span>,</a>
-<a class="sourceLine" id="cb44-21" title="21">  <span class="dt">sample =</span> <span class="st">"sample1"</span>,</a>
-<a class="sourceLine" id="cb44-22" title="22">  <span class="dt">author =</span> <span class="st">"tengfei"</span>)</a>
-<a class="sourceLine" id="cb44-23" title="23"></a>
-<a class="sourceLine" id="cb44-24" title="24"><span class="co">## upload data with metadata</span></a>
-<a class="sourceLine" id="cb44-25" title="25">p<span class="op">$</span><span class="kw">upload</span>(fl, <span class="dt">metadata =</span> fl.meta)</a>
-<a class="sourceLine" id="cb44-26" title="26"></a>
-<a class="sourceLine" id="cb44-27" title="27"><span class="co">## check uploading success</span></a>
-<a class="sourceLine" id="cb44-28" title="28">f.file &lt;-<span class="st"> </span>p<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/connections">file</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/basename">basename</a></span>(fl))</a>
-<a class="sourceLine" id="cb44-29" title="29"></a>
-<a class="sourceLine" id="cb44-30" title="30"><span class="co">## get the pipeline from public repos</span></a>
-<a class="sourceLine" id="cb44-31" title="31">f.pipe &lt;-<span class="st"> </span>a<span class="op">$</span><span class="kw">pipeline</span>(<span class="dt">pipeline_name =</span> <span class="st">"FastQC"</span>)</a>
-<a class="sourceLine" id="cb44-32" title="32"></a>
-<a class="sourceLine" id="cb44-33" title="33"><span class="co">## copy the pipeline to your poject</span></a>
-<a class="sourceLine" id="cb44-34" title="34">p<span class="op">$</span><span class="kw"><a href="../reference/pipeline_add.html">pipeline_add</a></span>(<span class="dt">pipeline_name =</span> f.pipe<span class="op">$</span>name)</a>
-<a class="sourceLine" id="cb44-35" title="35"></a>
-<a class="sourceLine" id="cb44-36" title="36"><span class="co">## get the pipeline from your project not public one</span></a>
-<a class="sourceLine" id="cb44-37" title="37">f.pipe &lt;-<span class="st"> </span>p<span class="op">$</span><span class="kw">pipeline</span>(<span class="dt">name =</span> <span class="st">"FastQC"</span>)</a>
-<a class="sourceLine" id="cb44-38" title="38"></a>
-<a class="sourceLine" id="cb44-39" title="39"><span class="co">## check the inputs needed for running tasks</span></a>
-<a class="sourceLine" id="cb44-40" title="40">f.pipe<span class="op">$</span><span class="kw">details</span>()</a>
-<a class="sourceLine" id="cb44-41" title="41"></a>
-<a class="sourceLine" id="cb44-42" title="42"><span class="co">## Ready to run a task? go</span></a>
-<a class="sourceLine" id="cb44-43" title="43">f.task &lt;-<span class="st"> </span>p<span class="op">$</span><span class="kw"><a href="../reference/task_run.html">task_run</a></span>(</a>
-<a class="sourceLine" id="cb44-44" title="44">  <span class="dt">name =</span> <span class="st">"my task"</span>,</a>
-<a class="sourceLine" id="cb44-45" title="45">  <span class="dt">description =</span> <span class="st">"A text description"</span>,</a>
-<a class="sourceLine" id="cb44-46" title="46">  <span class="dt">pipeline_id =</span> f.pipe<span class="op">$</span>id,</a>
-<a class="sourceLine" id="cb44-47" title="47">  <span class="dt">inputs =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="st">"177252"</span> =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(f.file<span class="op">$</span>id)))</a>
-<a class="sourceLine" id="cb44-48" title="48">f.task<span class="op">$</span><span class="kw">run</span>()</a>
-<a class="sourceLine" id="cb44-49" title="49"></a>
-<a class="sourceLine" id="cb44-50" title="50"><span class="co">## or you can just run with Task constructor</span></a>
-<a class="sourceLine" id="cb44-51" title="51">f.task &lt;-<span class="st"> </span><span class="kw"><a href="../reference/Task-class.html">Task</a></span>(</a>
-<a class="sourceLine" id="cb44-52" title="52">  <span class="dt">auth =</span> <span class="kw"><a href="../reference/Auth-class.html">Auth</a></span>(token),</a>
-<a class="sourceLine" id="cb44-53" title="53">  <span class="dt">name =</span> <span class="st">"my task"</span>,</a>
-<a class="sourceLine" id="cb44-54" title="54">  <span class="dt">description =</span> <span class="st">"A text description"</span>,</a>
-<a class="sourceLine" id="cb44-55" title="55">  <span class="dt">pipeline_id =</span> f.pipe<span class="op">$</span>id,</a>
-<a class="sourceLine" id="cb44-56" title="56">  <span class="dt">project_id =</span> p<span class="op">$</span>id,</a>
-<a class="sourceLine" id="cb44-57" title="57">  <span class="dt">inputs =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="st">"177252"</span> =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(f.file<span class="op">$</span>id)))</a>
-<a class="sourceLine" id="cb44-58" title="58"></a>
-<a class="sourceLine" id="cb44-59" title="59"><span class="co">## Monitor you task</span></a>
-<a class="sourceLine" id="cb44-60" title="60">f.task<span class="op">$</span><span class="kw">monitor</span>(<span class="dv">30</span>)</a>
-<a class="sourceLine" id="cb44-61" title="61"></a>
-<a class="sourceLine" id="cb44-62" title="62"><span class="co">## download a task output files</span></a>
-<a class="sourceLine" id="cb44-63" title="63">f.task &lt;-<span class="st"> </span>p<span class="op">$</span><span class="kw">task</span>(<span class="st">"my task"</span>)</a>
-<a class="sourceLine" id="cb44-64" title="64">f.task<span class="op">$</span><span class="kw">download</span>(<span class="st">"~/Desktop/"</span>)</a>
-<a class="sourceLine" id="cb44-65" title="65"></a>
-<a class="sourceLine" id="cb44-66" title="66"><span class="co">## Abort the task</span></a>
-<a class="sourceLine" id="cb44-67" title="67">f.task<span class="op">$</span><span class="kw">abort</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://www.sevenbridges.com">"sbgr"</a></span><span class="op">)</span>
+<span class="va">token</span> <span class="op">&lt;-</span> <span class="st">"aef7e9e3f6c54fb1b338ac4ecddf1a56"</span>
+<span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Auth-class.html">Auth</a></span><span class="op">(</span><span class="va">token</span><span class="op">)</span>
+
+<span class="co">## get billing info</span>
+<span class="va">b</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">$</span><span class="fu">billing</span><span class="op">(</span><span class="op">)</span>
+
+<span class="co">## create project</span>
+<span class="va">a</span><span class="op">$</span><span class="fu">project_new</span><span class="op">(</span>
+  name <span class="op">=</span> <span class="st">"API"</span>, description <span class="op">=</span> <span class="st">"API tutorial"</span>,
+  billing_group_id <span class="op">=</span> <span class="va">b</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span><span class="op">)</span>
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">$</span><span class="fu">project</span><span class="op">(</span><span class="st">"API"</span><span class="op">)</span>
+
+<span class="co">## get data</span>
+<span class="va">fl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"sample1.fastq"</span>, package <span class="op">=</span> <span class="st">"sbgr"</span><span class="op">)</span>
+
+<span class="co">## create meta data</span>
+<span class="va">fl.meta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+  file_type <span class="op">=</span> <span class="st">"fastq"</span>,
+  seq_tech <span class="op">=</span> <span class="st">"Illumina"</span>,
+  sample <span class="op">=</span> <span class="st">"sample1"</span>,
+  author <span class="op">=</span> <span class="st">"tengfei"</span><span class="op">)</span>
+
+<span class="co">## upload data with metadata</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">upload</span><span class="op">(</span><span class="va">fl</span>, metadata <span class="op">=</span> <span class="va">fl.meta</span><span class="op">)</span>
+
+<span class="co">## check uploading success</span>
+<span class="va">f.file</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">file</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="va">fl</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co">## get the pipeline from public repos</span>
+<span class="va">f.pipe</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span>pipeline_name <span class="op">=</span> <span class="st">"FastQC"</span><span class="op">)</span>
+
+<span class="co">## copy the pipeline to your poject</span>
+<span class="va">p</span><span class="op">$</span><span class="fu">pipeline_add</span><span class="op">(</span>pipeline_name <span class="op">=</span> <span class="va">f.pipe</span><span class="op">$</span><span class="va">name</span><span class="op">)</span>
+
+<span class="co">## get the pipeline from your project not public one</span>
+<span class="va">f.pipe</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">pipeline</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"FastQC"</span><span class="op">)</span>
+
+<span class="co">## check the inputs needed for running tasks</span>
+<span class="va">f.pipe</span><span class="op">$</span><span class="fu">details</span><span class="op">(</span><span class="op">)</span>
+
+<span class="co">## Ready to run a task? go</span>
+<span class="va">f.task</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">task_run</span><span class="op">(</span>
+  name <span class="op">=</span> <span class="st">"my task"</span>,
+  description <span class="op">=</span> <span class="st">"A text description"</span>,
+  pipeline_id <span class="op">=</span> <span class="va">f.pipe</span><span class="op">$</span><span class="va">id</span>,
+  inputs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"177252"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">f.file</span><span class="op">$</span><span class="va">id</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">f.task</span><span class="op">$</span><span class="fu">run</span><span class="op">(</span><span class="op">)</span>
+
+<span class="co">## or you can just run with Task constructor</span>
+<span class="va">f.task</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Task-class.html">Task</a></span><span class="op">(</span>
+  auth <span class="op">=</span> <span class="fu"><a href="../reference/Auth-class.html">Auth</a></span><span class="op">(</span><span class="va">token</span><span class="op">)</span>,
+  name <span class="op">=</span> <span class="st">"my task"</span>,
+  description <span class="op">=</span> <span class="st">"A text description"</span>,
+  pipeline_id <span class="op">=</span> <span class="va">f.pipe</span><span class="op">$</span><span class="va">id</span>,
+  project_id <span class="op">=</span> <span class="va">p</span><span class="op">$</span><span class="va">id</span>,
+  inputs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"177252"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">f.file</span><span class="op">$</span><span class="va">id</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co">## Monitor you task</span>
+<span class="va">f.task</span><span class="op">$</span><span class="fu">monitor</span><span class="op">(</span><span class="fl">30</span><span class="op">)</span>
+
+<span class="co">## download a task output files</span>
+<span class="va">f.task</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">task</span><span class="op">(</span><span class="st">"my task"</span><span class="op">)</span>
+<span class="va">f.task</span><span class="op">$</span><span class="fu">download</span><span class="op">(</span><span class="st">"~/Desktop/"</span><span class="op">)</span>
+
+<span class="co">## Abort the task</span>
+<span class="va">f.task</span><span class="op">$</span><span class="fu">abort</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li>
-<a href="#introduction">Introduction</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#cheatsheet">Cheatsheet</a></li>
-      </ul>
-</li>
-      <li>
-<a href="#quick-start-running-the-fastqc-pipeline">Quick start: running the FastQC pipeline</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#create-an-auth-object">Create an Auth object</a></li>
-      <li><a href="#billing-group">Billing group</a></li>
-      <li><a href="#create-a-project">Create a project</a></li>
-      <li><a href="#upload-file-and-set-metadata">Upload file and set metadata</a></li>
-      <li><a href="#get-pipelines-information">Get pipelines information</a></li>
-      <li><a href="#run-a-task-with-the-pipeline">Run a task with the pipeline</a></li>
-      <li><a href="#monitor-your-task">Monitor your task</a></li>
-      <li><a href="#abort-a-task">Abort a task</a></li>
-      <li><a href="#download-the-results">Download the results</a></li>
-      <li><a href="#wrap-the-example-up">Wrap the example up</a></li>
-      </ul>
-</li>
-      </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
+
 
 
       <footer><div class="copyright">
@@ -451,12 +458,14 @@ author: tengfei</code></pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
