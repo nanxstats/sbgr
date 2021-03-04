@@ -1,8 +1,5 @@
 # R Client for Seven Bridges Genomics API (v1)
 
-[![Build Status](https://travis-ci.org/nanxstats/sbgr.svg?branch=master)](https://travis-ci.org/nanxstats/sbgr)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nanxstats/sbgr?branch=master&svg=true)](https://ci.appveyor.com/project/nanxstats/sbgr)
-
 **Note: This is a legacy project. We recommend all users to use the [sevenbridges](https://bioconductor.org/packages/sevenbridges) package instead, since we have migrated from API v1 to API v2.**
 
 The `sbgr` package provides an R client for accessing the Seven Bridges Genomics API v1.
