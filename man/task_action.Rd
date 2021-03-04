@@ -4,8 +4,13 @@
 \alias{task_action}
 \title{Performs action on the task}
 \usage{
-task_action(auth_token = NULL, project_id = NULL, task_id = NULL,
-  action = "abort", ...)
+task_action(
+  auth_token = NULL,
+  project_id = NULL,
+  task_id = NULL,
+  action = "abort",
+  ...
+)
 }
 \arguments{
 \item{auth_token}{auth token}

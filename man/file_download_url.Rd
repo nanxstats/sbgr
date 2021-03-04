@@ -4,8 +4,7 @@
 \alias{file_download_url}
 \title{Returns a direct download URL for a project's file}
 \usage{
-file_download_url(auth_token = NULL, project_id = NULL,
-  file_id = NULL, ...)
+file_download_url(auth_token = NULL, project_id = NULL, file_id = NULL, ...)
 }
 \arguments{
 \item{auth_token}{auth token}

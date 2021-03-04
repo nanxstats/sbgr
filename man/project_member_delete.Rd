@@ -4,8 +4,12 @@
 \alias{project_member_delete}
 \title{Removes a member from a project}
 \usage{
-project_member_delete(auth_token = NULL, project_id = NULL,
-  user_id = NULL, ...)
+project_member_delete(
+  auth_token = NULL,
+  project_id = NULL,
+  user_id = NULL,
+  ...
+)
 }
 \arguments{
 \item{auth_token}{auth token}

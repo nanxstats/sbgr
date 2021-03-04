@@ -4,8 +4,13 @@
 \alias{project_new}
 \title{Create new project}
 \usage{
-project_new(auth_token = NULL, name = NULL, description = NULL,
-  billing_group_id = NULL, ...)
+project_new(
+  auth_token = NULL,
+  name = NULL,
+  description = NULL,
+  billing_group_id = NULL,
+  ...
+)
 }
 \arguments{
 \item{auth_token}{auth token}

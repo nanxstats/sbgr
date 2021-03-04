@@ -4,8 +4,13 @@
 \alias{task_details}
 \title{Returns information about the task}
 \usage{
-task_details(auth_token = NULL, project_id = NULL, task_id = NULL,
-  download.url = FALSE, ...)
+task_details(
+  auth_token = NULL,
+  project_id = NULL,
+  task_id = NULL,
+  download.url = FALSE,
+  ...
+)
 }
 \arguments{
 \item{auth_token}{auth token}

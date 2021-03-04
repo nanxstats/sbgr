@@ -4,8 +4,7 @@
 \alias{task_run}
 \title{Runs a task as a part of a project}
 \usage{
-task_run(auth_token = NULL, project_id = NULL, task_details = NULL,
-  ...)
+task_run(auth_token = NULL, project_id = NULL, task_details = NULL, ...)
 }
 \arguments{
 \item{auth_token}{auth token}

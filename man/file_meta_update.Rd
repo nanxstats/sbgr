@@ -4,14 +4,22 @@
 \alias{file_meta_update}
 \title{Update project's file metadata}
 \usage{
-file_meta_update(auth_token = NULL, project_id = NULL,
-  file_id = NULL, name = NULL, file_type = c("text", "binary",
-  "fasta", "csfasta", "fastq", "qual", "xsq", "sff", "bam", "bam_index",
-  "illumina_export", "vcf", "sam", "bed", "archive", "juncs", "gtf", "gff",
-  "enlis_genome"), qual_scale = c("sanger", "illumina13", "illumina15",
-  "illumina18", "solexa"), seq_tech = c("454", "Helicos", "Illumina",
-  "Solid", "IonTorrent"), sample = NULL, library = NULL,
-  platform_unit = NULL, paired_end = NULL, ...)
+file_meta_update(
+  auth_token = NULL,
+  project_id = NULL,
+  file_id = NULL,
+  name = NULL,
+  file_type = c("text", "binary", "fasta", "csfasta", "fastq", "qual", "xsq", "sff",
+    "bam", "bam_index", "illumina_export", "vcf", "sam", "bed", "archive", "juncs",
+    "gtf", "gff", "enlis_genome"),
+  qual_scale = c("sanger", "illumina13", "illumina15", "illumina18", "solexa"),
+  seq_tech = c("454", "Helicos", "Illumina", "Solid", "IonTorrent"),
+  sample = NULL,
+  library = NULL,
+  platform_unit = NULL,
+  paired_end = NULL,
+  ...
+)
 }
 \arguments{
 \item{auth_token}{auth token}

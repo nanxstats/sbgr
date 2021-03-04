@@ -4,8 +4,14 @@
 \alias{pipeline_add}
 \title{Add a pipeline to a specified project}
 \usage{
-pipeline_add(auth_token = NULL, project_id_to = NULL,
-  project_id_from = NULL, pipeline_id = NULL, revision = NULL, ...)
+pipeline_add(
+  auth_token = NULL,
+  project_id_to = NULL,
+  project_id_from = NULL,
+  pipeline_id = NULL,
+  revision = NULL,
+  ...
+)
 }
 \arguments{
 \item{auth_token}{auth token}

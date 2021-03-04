@@ -4,9 +4,16 @@
 \alias{project_member_update}
 \title{Set permissions for a user to a project}
 \usage{
-project_member_update(auth_token = NULL, project_id = NULL,
-  user_id = NULL, write = FALSE, copy = FALSE, execute = FALSE,
-  admin = FALSE, ...)
+project_member_update(
+  auth_token = NULL,
+  project_id = NULL,
+  user_id = NULL,
+  write = FALSE,
+  copy = FALSE,
+  execute = FALSE,
+  admin = FALSE,
+  ...
+)
 }
 \arguments{
 \item{auth_token}{auth token}

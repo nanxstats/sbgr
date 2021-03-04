@@ -4,8 +4,7 @@
 \alias{file_details}
 \title{Returns detailed information about a project's files}
 \usage{
-file_details(auth_token = NULL, project_id = NULL, file_id = NULL,
-  ...)
+file_details(auth_token = NULL, project_id = NULL, file_id = NULL, ...)
 }
 \arguments{
 \item{auth_token}{auth token}

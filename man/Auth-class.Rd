@@ -36,8 +36,7 @@ it's \url{https://api.sbgenomics.com/1.1/}}
 \section{Methods}{
 
 \describe{
-\item{\code{project(name = NULL, id = NULL, index = NULL, ignore.case = TRUE,
-  exact = TRUE)}}{find project}
+\item{\code{project(name = NULL, id = NULL, index = NULL, ignore.case = TRUE, exact = TRUE)}}{find project}
 }}
 
 \examples{

@@ -5,14 +5,20 @@
 \title{Specify the parameters of the file metadata and return a list,
 JSON string, or write to a file}
 \usage{
-misc_make_metadata(output = c("list", "json", "metafile"),
-  destfile = NULL, name = NULL, file_type = c("text", "binary",
-  "fasta", "csfasta", "fastq", "qual", "xsq", "sff", "bam", "bam_index",
-  "illumina_export", "vcf", "sam", "bed", "archive", "juncs", "gtf", "gff",
-  "enlis_genome"), qual_scale = c("sanger", "illumina13", "illumina15",
-  "illumina18", "solexa"), seq_tech = c("454", "Helicos", "Illumina",
-  "Solid", "IonTorrent"), sample = NULL, library = NULL,
-  platform_unit = NULL, paired_end = NULL)
+misc_make_metadata(
+  output = c("list", "json", "metafile"),
+  destfile = NULL,
+  name = NULL,
+  file_type = c("text", "binary", "fasta", "csfasta", "fastq", "qual", "xsq", "sff",
+    "bam", "bam_index", "illumina_export", "vcf", "sam", "bed", "archive", "juncs",
+    "gtf", "gff", "enlis_genome"),
+  qual_scale = c("sanger", "illumina13", "illumina15", "illumina18", "solexa"),
+  seq_tech = c("454", "Helicos", "Illumina", "Solid", "IonTorrent"),
+  sample = NULL,
+  library = NULL,
+  platform_unit = NULL,
+  paired_end = NULL
+)
 }
 \arguments{
 \item{output}{Output format,
